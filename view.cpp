@@ -50,7 +50,8 @@ View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("S
 	// Initialize the playing field
 	for (unsigned int y = 0; y < 4; y++) {
 		for (unsigned int i = 0; i < 13; i++ ) {
-			card[y][i] = Gtk::manage(new Gtk::Image( nullCardPixbuf ));
+			Glib::RefPtr<Gdk::Pixbuf> temp = deck.image(model_->rank(i), model_->suit(y));
+			card[y][i] = Gtk::manage(new Gtk::Image( temp ));
 			tableCardFrames[y][i].add(*card[y][i]);
 			cardRows[y].add( tableCardFrames[y][i] );
 		}
@@ -77,7 +78,8 @@ View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("S
 
 	// Setup the hand row
 	for (unsigned int y = 0; y < 13; y++) {
-		handImages[y] = Gtk::manage(new Gtk::Image( nullCardPixbuf ));
+		Glib::RefPtr<Gdk::Pixbuf> temp = deck.image(model_->rank(y), model_->suit(0));
+		handImages[y] = Gtk::manage(new Gtk::Image( temp));
 		handButtons[y] = Gtk::manage(new Gtk::Button());
 		handButtons[y]->set_image(*handImages[y]);
 		//handButtons[y]->set_sensitive(false);
@@ -100,13 +102,68 @@ View::~View() {}
 
 
 void View::update() {
-  Suit suit = model_->suit();
-  Rank rank = model_->rank();
-  if ( suit == NOSUIT ) 
-    tempCard.set( deck.null() );
-  else
-    tempCard.set( deck.image(rank, suit) );
+	//Suit suit = model_->suit(1);
+	//Rank rank = model_->rank(1);
+	//clearTable();
+	//clearHand();
+	/*
+	if ( suit == NOSUIT ) 
+		tempCard.set( deck.null() );
+	else
+	    tempCard.set( deck.image(rank, suit) );
+	*/
 
+	changePlayerLabel(1);
+}
+
+
+void View::updateTable()
+{
+	// Grab the current table and update the table image
+}
+
+void View::updateScores()
+{
+	for(unsigned int i = 0; i < 4; i++)
+	{
+		// update the nameLabels here
+	}
+}
+
+void View::resetScore()
+{
+	for(unsigned int i = 0; i < 4; i++)
+	{
+		nameLabels[i].set_text("0 points");
+	}
+}
+
+void View::changePlayerLabel(int playerNumber) // use to change the label
+{
+	std::cout << "check" << std::endl;
+	for(unsigned int  i = 0; i < 4; i++)
+	{
+		playerButtons[i].set_label("Computer");
+	}
+}
+
+void View::clearTable() // Tested will work 
+{
+	for(unsigned int x = 0; x < 4; x++)
+	{
+		for(unsigned int y = 0; y < 13; y++)
+		{
+			card[x][y]->set(deck.null());
+		}
+	}
+}
+
+void View::clearHand() // tested will work
+{
+	for(unsigned int i = 0; i < 13; i++)
+	{
+		handImages[i]->set(deck.null());
+	}
 }
 
 void View::nextButtonClicked() {

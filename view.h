@@ -107,6 +107,14 @@ private:
 
 	void playerButtonClicked(int);
 	void handButtonClicked(int);
+
+	void changePlayerLabel(int);
+	void clearTable();
+	void clearHand();
+	void resetScore();
+	void updateTable();
+	void updateScores();
+
 }; // View
 
 #endif

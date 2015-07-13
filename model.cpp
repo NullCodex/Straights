@@ -16,16 +16,16 @@
 
 Model::Model() : topCard_(-1) {}
 
-Suits Model::suit() {
-  if (topCard_ == -1) return NOSUIT;
+Suit Model::suit(int suitNumber) {
+  //if (topCard_ == -1) return NOSUIT;
   
-  return (Suit) (topCard_ % numSuits);
+  return (Suit) (suitNumber);
 }
 
-Rank Model::rank() {
-  if (topCard_ == -1) return NORANK;
+Rank Model::rank(int rankNumber) {
+  //if (topCard_ == -1) return NORANK;
 
-  return (Rank) (topCard_ / numSuits);
+  return (Rank) (rankNumber);
 }
 
 void Model::nextCard() {
@@ -54,12 +54,14 @@ void Model::endGame()
 {
 	// probably call the rage quit function
 	std::cout << "endGame" << std::endl;
+	notify();
 }
 
 void Model::playerButtonClicked(int playerNumber)
 {
 	std::cout << playerNumber << std::endl;
 	// can replace with computer here
+
 }
 
 void Model::handButtonClicked(int cardNumber)

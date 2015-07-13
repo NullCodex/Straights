@@ -10,12 +10,15 @@
 #include <algorithm>
 #include <iterator>
 #include <string>
+#include <iostream>
+
 using std::string;
 using std::transform;
 
 // Sets up an array of the Portable Network Graphics (PNG) file names that contain the necessary card images.
 // The deck will load the contents into pixel buffers for later use.
 const char * image_names[] = {
+
 	// Set up all clubs
 	"cards_png/img/0_0.png",
 	"cards_png/img/0_1.png",
@@ -72,6 +75,8 @@ const char * image_names[] = {
 	"cards_png/img/3_j.png",
 	"cards_png/img/3_q.png",
 	"cards_png/img/3_k.png",
+
+	"cards_png/img/back_1.png"
 	/*   
 	// Set up NINE of {DIAMOND,CLUB,HEART,SPADE}
 	"cards_png/0_0.png", "cards_png/0_1.png", "cards_png/0_2.png", "cards_png/0_3.png",
@@ -109,7 +114,9 @@ DeckGUI::~DeckGUI() {
 
 // Returns the image for the specified card.
 Glib::RefPtr<Gdk::Pixbuf> DeckGUI::image( Rank r, Suit s ) {
-	int index = ((int) r)*4 + ((int) s );
+	//int index = ((int) r)*4 + ((int) s );
+	int index = ((int) s)*13 + ((int) r);
+	std::cout << index << std::endl;
 	return deck[ index ];
 } // DeckGUI::getCardImage 
 

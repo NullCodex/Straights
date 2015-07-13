@@ -37,8 +37,8 @@ enum Suits { DIAMOND, CLUB, HEART, SPADE, NOSUIT };
 class Model : public Subject {
 public:
     Model();
-    Suit suit();
-    Rank rank();
+    Suit suit(int);
+    Rank rank(int);
     void nextCard();
     void resetCards();
     void newGame(std::string);
