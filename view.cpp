@@ -105,7 +105,7 @@ void View::update() {
 	//Suit suit = model_->suit(1);
 	//Rank rank = model_->rank(1);
 	//clearTable();
-	//clearHand();
+	clearHand();
 	/*
 	if ( suit == NOSUIT ) 
 		tempCard.set( deck.null() );
@@ -113,7 +113,7 @@ void View::update() {
 	    tempCard.set( deck.image(rank, suit) );
 	*/
 
-	changePlayerLabel(1);
+	//changePlayerLabel(1);
 }
 
 
