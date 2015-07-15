@@ -16,6 +16,7 @@
 #include "model.h"
 #include "subject.h"
 #include "DeckGUI.h"
+#include "GameDialog.h"
 #include <iostream>
 #include <string>
 
@@ -105,7 +106,7 @@ void View::update() {
 	//Suit suit = model_->suit(1);
 	//Rank rank = model_->rank(1);
 	//clearTable();
-	clearHand();
+	//clearHand();
 	/*
 	if ( suit == NOSUIT ) 
 		tempCard.set( deck.null() );
@@ -114,8 +115,13 @@ void View::update() {
 	*/
 
 	//changePlayerLabel(1);
+	createDialog("Winner");
 }
 
+void View::createDialog(std::string message)
+{
+	GameDialog dialog(*this, message);
+}
 
 void View::updateTable()
 {

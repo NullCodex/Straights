@@ -26,7 +26,6 @@ public:
         View( Controller*, Model* );
 	virtual ~View();
 	virtual void update();	// Observer Pattern: concrete update() method
-
 private:
 	// Observer Pattern: to access Model accessors without having to downcast subject
 	Model *model_;
@@ -97,6 +96,7 @@ private:
 
 	Gtk::Image tempCard;
 
+
 	// Signal handlers:
 	void nextButtonClicked();
 	void resetButtonClicked();
@@ -115,6 +115,7 @@ private:
 	void updateTable();
 	void updateScores();
 
+	void createDialog(std::string);
 }; // View
 
 #endif

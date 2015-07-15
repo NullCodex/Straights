@@ -1,0 +1,21 @@
+#ifndef __GAME_DIALOG_H
+#define __GAME_DIALOG_H
+#include <gtkmm/dialog.h>
+#include <gtkmm/box.h>
+#include <gtkmm/messagedialog.h>
+#include <string>
+#include <vector>
+using std::string;
+using std::vector;
+
+class GameDialog : Gtk::MessageDialog {
+public:
+	// Specifies the parent window of the dialog box and the title of the dialog box.
+	GameDialog(){}
+	GameDialog( Gtk::Window & parentWindow, string title);
+	virtual ~GameDialog();
+	
+private:
+
+}; // GameDialog
+#endif
