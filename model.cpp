@@ -14,7 +14,9 @@
 #include <sstream>
 
 
-Model::Model() : topCard_(-1) {}
+Model::Model() : topCard_(-1) {
+	game_ = NULL;
+}
 
 Suit Model::suit(int suitNumber) {
   //if (topCard_ == -1) return NOSUIT;
