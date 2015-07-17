@@ -14,9 +14,9 @@
 #include <sstream>
 
 
-Model::Model() : topCard_(-1), NUMPLAYERS(4) {
+Model::Model() : topCard_(-1), status_(NONE), gameStatus_(false) {
 	game_ = NULL;
-	for (unsigned int i = 0; i < NUMPLAYERS; i++){
+	for (unsigned int i = 0; i < 4; i++){
 		playerTypes_.push_back('h');
 	}
 }
@@ -37,6 +37,10 @@ char Model::playerType(int player) const{
 	return playerTypes_[player];
 }
 
+bool Model::hasGameStarted() const{
+	return gameStatus_;
+}
+
 void Model::nextCard() {
   if (topCard_ == numCards-1) return;
 
@@ -45,6 +49,12 @@ void Model::nextCard() {
 
 }
 
+bool Model::isHuman(int playerNumber) const{
+	if (playerTypes_[playerNumber] == 'h'){
+		return true;
+	}
+	return false;
+}
 
 void Model::resetCards() {
   topCard_ = -1;
@@ -53,6 +63,7 @@ void Model::resetCards() {
 
 void Model::newGame(std::string seed)
 {
+	gameStatus_ = true;
 	std::stringstream ss;
 	ss << seed;
 	// take the value and move it into our seed variable
@@ -68,17 +79,19 @@ void Model::endGame()
 
 void Model::playerButtonClicked(int playerNumber)
 {
-	if (game_ == NULL){ //game hasn't started, can still switch player types
+	if (hasGameStarted() == false){ //game hasn't started, can still switch player types
 		if (playerTypes_[playerNumber] == 'h'){
 			playerTypes_[playerNumber] = 'c';
 		}
 		else{
 			playerTypes_[playerNumber] = 'h';	
 		}
-		//update view
+	}
+	else{
+		//ragequit
 	}
 	// can replace with computer here
-
+	notify();
 }
 
 void Model::handButtonClicked(int cardNumber)

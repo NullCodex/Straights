@@ -21,6 +21,9 @@
 
 const int numSuits = 4;
 const int numCards = 52;
+
+enum RoundStatus {NONE, ACTIVE, WAIT, END};
+//
 /*
 const int numFaces = 6;
 const int numSuits = 4;
@@ -42,11 +45,14 @@ public:
     void playerButtonClicked(int);
     void handButtonClicked(int);
     char playerType(int) const;
+    bool hasGameStarted() const;
+    bool isHuman(int) const;
 private:
+    RoundStatus status_;
+    bool gameStatus_;
     int topCard_;
     Game* game_;
     std::vector <char> playerTypes_;
-    const int NUMPLAYERS;
 }; // Model
 
 

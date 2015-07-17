@@ -40,7 +40,7 @@ View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("S
 	rootWindow.add(startEndRow);
 
 	// Bind start and end button signal
-	startButton.signal_clicked().connect(sigc::mem_fun(*this, &View::restartGame));
+	startButton.signal_clicked().connect(sigc::mem_fun(*this, &View::newGame));
 	endButton.signal_clicked().connect(sigc::mem_fun(*this, &View::endGame));
 
 	// Setup the table of cards
@@ -101,6 +101,8 @@ View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("S
 
 	// Register view as observer of model
 	model_->subscribe(this);
+	clearTable();
+	clearHand();
 
 } // View::View
 
@@ -120,11 +122,34 @@ void View::update() {
 	*/
 
 	//changePlayerLabel(1);
-	createDialog("Winner");
+	if (model_->hasGameStarted()){
+		//some stuff here
+	}
+	else{
+		resetGame();
+		//maybe call announce winners or update score or something
+	}
+	//createDialog("Winner");
 }
 
-void View::createDialog(std::string message)
-{
+void View::resetGame() {
+	clearTable();
+	clearHand();
+	for (unsigned int i = 0; i < 4; i++) {
+		playerButtons[i].set_sensitive(true);
+		nameLabels[i].set_label("0 points");
+		discardLabels[i].set_label("0 discards");
+		
+		if (model_->isHuman(i)) {
+			playerButtons[i].set_label("Human");
+		}
+		else {
+			playerButtons[i].set_label("Computer");
+		}
+	}
+}
+
+void View::createDialog(std::string message){
 	GameDialog dialog(*this, message);
 }
 
@@ -183,8 +208,9 @@ void View::resetButtonClicked() {
   controller_->resetButtonClicked();
 } // View::resetButtonClicked
 
-void View::restartGame()
+void View::newGame()
 {
+	std::vector<string> playerTypes;
 	controller_->newGame(seedField.get_text());
 }
 

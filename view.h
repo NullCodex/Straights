@@ -102,7 +102,8 @@ private:
 	void resetButtonClicked();
 
 
-	void restartGame();
+	void newGame();
+	void resetGame();
 	void endGame();
 
 	void playerButtonClicked(int);
