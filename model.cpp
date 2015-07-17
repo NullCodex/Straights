@@ -14,8 +14,11 @@
 #include <sstream>
 
 
-Model::Model() : topCard_(-1) {
+Model::Model() : topCard_(-1), NUMPLAYERS(4) {
 	game_ = NULL;
+	for (unsigned int i = 0; i < NUMPLAYERS; i++){
+		playerTypes_.push_back('h');
+	}
 }
 
 Suit Model::suit(int suitNumber) {
@@ -28,6 +31,10 @@ Rank Model::rank(int rankNumber) {
   //if (topCard_ == -1) return NORANK;
 
   return (Rank) (rankNumber);
+}
+
+char Model::playerType(int player) const{
+	return playerTypes_[player];
 }
 
 void Model::nextCard() {
@@ -47,7 +54,7 @@ void Model::resetCards() {
 void Model::newGame(std::string seed)
 {
 	std::stringstream ss;
-	ss << seed; 
+	ss << seed;
 	// take the value and move it into our seed variable
 	std::cout << "newGame" << std::endl;
 }
@@ -61,7 +68,15 @@ void Model::endGame()
 
 void Model::playerButtonClicked(int playerNumber)
 {
-	std::cout << playerNumber << std::endl;
+	if (game_ == NULL){ //game hasn't started, can still switch player types
+		if (playerTypes_[playerNumber] == 'h'){
+			playerTypes_[playerNumber] = 'c';
+		}
+		else{
+			playerTypes_[playerNumber] = 'h';	
+		}
+		//update view
+	}
 	// can replace with computer here
 
 }

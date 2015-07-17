@@ -63,7 +63,12 @@ View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("S
 	for (unsigned int x = 0; x < 4; x++) {
 		std::stringstream ss;
 		ss << x + 1;
-		playerButtons[x].set_label("Human");
+		if (m->playerType(x) == 'h'){
+			playerButtons[x].set_label("Human");
+		}
+		else{
+			playerButtons[x].set_label("Computer");
+		}
 		playerButtons[x].signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &View::playerButtonClicked), x));
 		playerFrames[x].set_label("Player " + ss.str());
 		playerFrames[x].add(playerColumn[x]);
@@ -146,11 +151,9 @@ void View::resetScore()
 
 void View::changePlayerLabel(int playerNumber) // use to change the label
 {
-	std::cout << "check" << std::endl;
-	for(unsigned int  i = 0; i < 4; i++)
-	{
-		playerButtons[i].set_label("Computer");
-	}
+	std::cout << "changePlayerLabel" << std::endl;
+	string label = "Human" == playerButtons[playerNumber].get_label() ? "Computer" : "Human";
+	playerButtons[playerNumber].set_label(label);
 }
 
 void View::clearTable() // Tested will work 

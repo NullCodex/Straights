@@ -41,9 +41,12 @@ public:
     void endGame();
     void playerButtonClicked(int);
     void handButtonClicked(int);
+    char playerType(int) const;
 private:
     int topCard_;
     Game* game_;
+    std::vector <char> playerTypes_;
+    const int NUMPLAYERS;
 }; // Model
 
 
