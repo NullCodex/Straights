@@ -123,7 +123,9 @@ void View::update() {
 
 	//changePlayerLabel(1);
 	if (model_->hasGameStarted()){
-		//some stuff here
+		if (model_->isRoundStatusNone()){
+			
+		}
 	}
 	else{
 		resetGame();

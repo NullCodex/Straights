@@ -11,10 +11,9 @@
 
 
 #include "model.h"
-#include <cstdlib>
-#include <cstring>
+#include <sstream>
 
-Model::Model() : topCard_(-1), status_(NONE), gameStatus_(false) {
+Model::Model() : topCard_(-1), gameStatus_(false), seed_(0) {
 	game_ = NULL;
 	for (unsigned int i = 0; i < 4; i++){
 		playerTypes_.push_back('h');
@@ -63,15 +62,25 @@ void Model::resetCards() {
 
 void Model::newGame(std::string seed)
 {
+	if (gameStatus_){
+		endGame();
+	}
 	gameStatus_ = true;
-	int seedValue = atoi(seed.c_str());
-	game_ = new Game(playerTypes_, seedValue);
-	// take the value and move it into our seed variable
+	std::stringstream ss;
+    ss << seed;
+    ss >> seed_;
+	game_ = new Game(playerTypes_, seed_);
 	std::cout << "newGame" << std::endl;
+	setupRound();
 }
 
 void Model::endGame()
 {
+	if (game_!=NULL){
+		delete game_;
+		game_ = NULL;
+	}
+	gameStatus_ = false;
 	// probably call the rage quit function
 	std::cout << "endGame" << std::endl;
 	notify();
@@ -98,4 +107,43 @@ void Model::handButtonClicked(int cardNumber)
 {
 	std::cout << cardNumber << std::endl;
 
+}
+
+void Model::setupRound(){
+    if (game_->winnerExists()) {
+        gameStatus_ = false;
+        //do something with winners here
+    }
+    else {
+    	game_->newRound();
+    }
+    notify();
+}
+
+bool Model::isRoundStatusNone() const{
+	if (game_->status() == NONE){
+		return true;
+	}
+	return false;
+}
+
+bool Model::isRoundStatusActive() const{
+	if (game_->status() == ACTIVE){
+		return true;
+	}
+	return false;
+}
+
+bool Model::isRoundStatusWait() const{
+	if (game_->status() == WAIT){
+		return true;
+	}
+	return false;
+}
+
+bool Model::isRoundStatusEnd() const{
+	if (game_->status() == END){
+		return true;
+	}
+	return false;
 }

@@ -10,6 +10,8 @@
 #include "Table.h"
 #include "Command.h"
 
+enum RoundStatus {NONE, ACTIVE, WAIT, END};
+
 class Game{
 public:
 	Game(std::vector<char>, int);	//Constructor, takes vector of chars denoting human/computer players and an int representing a random value to build the deck
@@ -23,6 +25,7 @@ public:
 	void endRound();	//Handles actions at the end of a round
 	void outputWinners() const;	//Outputs the winners
 	void updatePossiblePlays();	//Updates unordered set of possible plays the set of all cards that can be played
+	RoundStatus status() const;
 private:
 	Card* getCardReference(Card);	//Given a card, returns the pointer in the deck to the card
 	void determineFirstPlayer();	//Determines which player has seven of spades
@@ -33,6 +36,7 @@ private:
 	std::unordered_set<Card *> possiblePlays_;	//Keeps track of the set of cards that can be played
 	Table table_;	//Keeps track of the cards on the table
 	bool quit_;	//Keeps track of if a player has quit the game
+	RoundStatus status_;
 };
 
 

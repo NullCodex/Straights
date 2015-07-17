@@ -3,7 +3,7 @@
 #include <set>
 
 // Game constructor: pushes back new player instances into the vector
-Game::Game(std::vector<char> players, int seed) : deck_(seed), playerTypes_(players){
+Game::Game(std::vector<char> players, int seed) : deck_(seed), playerTypes_(players), status_(NONE){
 	quit_ = false;
 	for (unsigned int i = 0; i < players.size(); i++){
 		if (players[i] == 'h'){
@@ -136,7 +136,7 @@ void Game::outputCurrentTable() const{
 	std::cout << "Cards on the table:\n" << table_;
 }
 
-bool Game::winnerExists() const // function to check we have a winnder
+bool Game::winnerExists() const // function to check we have a winner
 {
 	for(unsigned int i = 0; i < players_.size(); i++)
 	{
@@ -207,4 +207,8 @@ void Game::updatePossiblePlays(){
 	for (unsigned int i = 0; i < (unsigned)possiblePlays.size(); i++){
 		possiblePlays_.insert(possiblePlays[i]);		
 	}
+}
+
+RoundStatus Game::status() const{
+	return status_;
 }

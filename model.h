@@ -22,7 +22,6 @@
 const int numSuits = 4;
 const int numCards = 52;
 
-enum RoundStatus {NONE, ACTIVE, WAIT, END};
 //
 /*
 const int numFaces = 6;
@@ -44,15 +43,20 @@ public:
     void endGame();
     void playerButtonClicked(int);
     void handButtonClicked(int);
+    void setupRound();
     char playerType(int) const;
     bool hasGameStarted() const;
     bool isHuman(int) const;
+    bool isRoundStatusNone() const;
+    bool isRoundStatusActive() const;
+    bool isRoundStatusWait() const;
+    bool isRoundStatusEnd() const;
 private:
-    RoundStatus status_;
     bool gameStatus_;
     int topCard_;
     Game* game_;
     std::vector <char> playerTypes_;
+    int seed_;
 }; // Model
 
 
