@@ -70,3 +70,7 @@ int Player::valueOfDiscarded() const {
 void Player::updateScore(){
 	score_ = getScore() + valueOfDiscarded();
 }
+
+int Player::numDiscards() const{
+	return discarded_.size();
+}

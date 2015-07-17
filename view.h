@@ -115,6 +115,8 @@ private:
 	void resetScore();
 	void updateTable();
 	void updateScores();
+	void startRound();
+	void startRoundDialogClicked();
 
 	void createDialog(std::string);
 }; // View

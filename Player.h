@@ -21,6 +21,7 @@ public:
 	int getScore() const; // Return the score
 	int valueOfDiscarded() const; // Function to help tabulating the score
 	void updateScore(); // Update the player's score
+	int numDiscards() const;
 protected:
 	std::vector <Card*> hand_; //should only point to cards created by Deck
 	int score_; // Each player should have a score variable to keep track of the current scoring

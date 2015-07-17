@@ -47,10 +47,12 @@ public:
     char playerType(int) const;
     bool hasGameStarted() const;
     bool isHuman(int) const;
-    bool isRoundStatusNone() const;
-    bool isRoundStatusActive() const;
+    bool isRoundStatusStart() const;
     bool isRoundStatusWait() const;
     bool isRoundStatusEnd() const;
+    std::vector<int> scores() const;
+    std::vector<int> discards() const;
+    int currentPlayerNumber() const;
 private:
     bool gameStatus_;
     int topCard_;

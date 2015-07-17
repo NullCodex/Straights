@@ -123,8 +123,8 @@ void View::update() {
 
 	//changePlayerLabel(1);
 	if (model_->hasGameStarted()){
-		if (model_->isRoundStatusNone()){
-			
+		if (model_->isRoundStatusStart()){
+			startRound();
 		}
 	}
 	else{
@@ -149,6 +149,33 @@ void View::resetGame() {
 			playerButtons[i].set_label("Computer");
 		}
 	}
+}
+void View::startRound(){
+	std::vector <int> scores = model_->scores();
+	std::vector <int> discards = model_->discards();
+	clearHand();
+	clearTable();
+	std::stringstream message;
+	for (int i = 0; i < 4; i++){
+		message << scores[i] << " points";
+		nameLabels[i].set_label(message.str());
+		message.str(std::string()); //clear stream
+
+		message << discards[i] << " discards";
+		discardLabels[i].set_text(message.str());
+		message.str(std::string()); //clear stream
+
+		playerButtons[i].set_sensitive(true);
+		playerButtons[i].set_label("Rage!");
+	}
+	message << "A new round begins. It's player " << model_->currentPlayerNumber()+1 << "'s turn to play.";
+	std::cout << message.str() << std::endl;
+	createDialog(message.str());
+	startRoundDialogClicked();
+}
+
+void View::startRoundDialogClicked() {
+
 }
 
 void View::createDialog(std::string message){

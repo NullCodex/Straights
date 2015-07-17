@@ -3,7 +3,7 @@
 #include <set>
 
 // Game constructor: pushes back new player instances into the vector
-Game::Game(std::vector<char> players, int seed) : deck_(seed), playerTypes_(players), status_(NONE){
+Game::Game(std::vector<char> players, int seed) : deck_(seed), playerTypes_(players), status_(START){
 	quit_ = false;
 	for (unsigned int i = 0; i < players.size(); i++){
 		if (players[i] == 'h'){
@@ -32,7 +32,12 @@ void Game::newRound(){
 		players_[i]->newHand(i, deck_);
 	}
 	determineFirstPlayer();
+	currentPlayer_ = firstPlayer_;
 	std::cout << "A new round begins. It's player " << (firstPlayer_+1) << "'s turn to play." << std::endl;
+}
+
+int Game::currentPlayerNumber() const{
+	return currentPlayer_;
 }
 
 // Function to check which existing player has the seven of spades
@@ -211,4 +216,20 @@ void Game::updatePossiblePlays(){
 
 RoundStatus Game::status() const{
 	return status_;
+}
+
+std::vector<int> Game::scores() const{
+	std::vector<int> playerScores;
+	for (int i = 0; i < 4; i++){
+		playerScores.push_back(players_[i]->getScore());
+	}
+	return playerScores;
+}
+
+std::vector<int> Game::discards() const{
+	std::vector<int> playerDiscards;
+	for (int i = 0; i < 4; i++){
+		playerDiscards.push_back(players_[i]->numDiscards());
+	}
+	return playerDiscards;
 }

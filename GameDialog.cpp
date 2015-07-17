@@ -10,7 +10,7 @@ GameDialog::GameDialog( Gtk::Window & parentWindow, string title) : MessageDialo
 	int result = run();
 	switch(result) {
 		case Gtk::RESPONSE_OK: {
-			std::cout << "Winner clicked" << std::endl;		
+			std::cout << "Dialog Closed" << std::endl;		
 		}
 		break;	
 	}		

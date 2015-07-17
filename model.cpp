@@ -120,15 +120,8 @@ void Model::setupRound(){
     notify();
 }
 
-bool Model::isRoundStatusNone() const{
-	if (game_->status() == NONE){
-		return true;
-	}
-	return false;
-}
-
-bool Model::isRoundStatusActive() const{
-	if (game_->status() == ACTIVE){
+bool Model::isRoundStatusStart() const{
+	if (game_->status() == START){
 		return true;
 	}
 	return false;
@@ -146,4 +139,16 @@ bool Model::isRoundStatusEnd() const{
 		return true;
 	}
 	return false;
+}
+
+std::vector<int> Model::scores() const {
+	return game_->scores();
+}
+
+std::vector<int> Model::discards() const {
+	return game_->discards();
+}
+
+int Model::currentPlayerNumber() const{
+	return game_->currentPlayerNumber();
 }
