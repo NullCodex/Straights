@@ -210,7 +210,6 @@ void View::resetButtonClicked() {
 
 void View::newGame()
 {
-	std::vector<string> playerTypes;
 	controller_->newGame(seedField.get_text());
 }
 

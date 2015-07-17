@@ -11,8 +11,8 @@
 
 
 #include "model.h"
-#include <sstream>
-
+#include <cstdlib>
+#include <cstring>
 
 Model::Model() : topCard_(-1), status_(NONE), gameStatus_(false) {
 	game_ = NULL;
@@ -64,8 +64,8 @@ void Model::resetCards() {
 void Model::newGame(std::string seed)
 {
 	gameStatus_ = true;
-	std::stringstream ss;
-	ss << seed;
+	int seedValue = atoi(seed.c_str());
+	game_ = new Game(playerTypes_, seedValue);
 	// take the value and move it into our seed variable
 	std::cout << "newGame" << std::endl;
 }
