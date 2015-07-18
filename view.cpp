@@ -283,7 +283,6 @@ void View::resetScore()
 
 void View::changePlayerLabel(int playerNumber) // use to change the label
 {
-	std::cout << "changePlayerLabel" << std::endl;
 	string label = "Human" == playerButtons[playerNumber].get_label() ? "Computer" : "Human";
 	playerButtons[playerNumber].set_label(label);
 }
@@ -308,11 +307,11 @@ void View::clearHand() // tested will work
 }
 
 void View::nextButtonClicked() {
-  controller_->nextButtonClicked();
+	controller_->nextButtonClicked();
 } // View::nextButtonClicked
 
 void View::resetButtonClicked() {
-  controller_->resetButtonClicked();
+	controller_->resetButtonClicked();
 } // View::resetButtonClicked
 
 void View::newGame()
@@ -332,6 +331,5 @@ void View::playerButtonClicked(int playerNumber)
 
 void View::handButtonClicked(int cardNumber)
 {
-	std::cout << "check" << std::endl;
 	controller_->handButtonClicked(cardNumber);
 }

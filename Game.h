@@ -38,6 +38,7 @@ public:
     std::vector<int> getTableCardValues() const;
     void humanAction(Command);
     bool isRoundOver() const;
+    void rageQuit();
 private:
 	Card* getCardReference(Card);	//Given a card, returns the pointer in the deck to the card
 	void determineFirstPlayer();	//Determines which player has seven of spades

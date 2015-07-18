@@ -65,6 +65,7 @@ void Game::playRound(){
 		players_[currentPlayer_]->legalPlays(possiblePlays_);
 		Card* card = computer->getLastCardPlayed();
 		if (card != NULL){
+			std::cout << "here\n";
 			table_.placeCard(card);
 		}
 		nextPlayer();
@@ -307,4 +308,13 @@ std::vector<int> Game::scores() const{
 
 std::vector<int> Game::discards() const{
 	return numberOfDiscards;
+}
+
+void Game::rageQuit(){
+	status_ = ACTIVE;
+	Human* temp = dynamic_cast<Human*>(players_[currentPlayer_]);
+	players_[currentPlayer_] = new Computer(players_[currentPlayer_]);
+	delete temp;
+	std::cout << "Player " << (currentPlayer_ + 1) << " ragequits. A computer will now take over." << std::endl;
+	playerTypes_[currentPlayer_] = 'c';
 }
