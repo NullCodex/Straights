@@ -177,9 +177,11 @@ void View::enableRageOption(){
 	for (unsigned int i = 0; i < 4; i++){
 		if (i!=model_->currentPlayerNumber()){
 			playerButtons[i].set_sensitive(false);
+			playerFrames[i].drag_unhighlight();
 		}
 		else{
-			playerButtons[i].set_sensitive(true);	
+			playerButtons[i].set_sensitive(true);
+			playerFrames[i].drag_highlight();	
 		}
 	}
 }
@@ -191,7 +193,8 @@ void View::resetGame() {
 		playerButtons[i].set_sensitive(true);
 		nameLabels[i].set_label("0 points");
 		discardLabels[i].set_label("0 discards");
-		handButtons[i]->set_sensitive(false);		
+		handButtons[i]->set_sensitive(false);
+		playerFrames[i].drag_unhighlight();		
 		if (model_->isHuman(i)) {
 			playerButtons[i].set_label("Human");
 		}
