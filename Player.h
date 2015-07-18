@@ -13,10 +13,13 @@ public:
 	//default destructor is fine, deck will take care of deleting card*
 	friend std::ostream &operator<<(std::ostream &, Player&);
 	virtual void legalPlays(std::unordered_set <Card*>) = 0; // Pure virtual function that's left to the child class to implement
+	virtual bool isLegalPlay(int, std::unordered_set<Card*>) =0;
+	bool canPlayCard(std::unordered_set <Card*>);
 	void discardCard(Card*); // Discard a card
 	void outputDiscardList() const; // Prints the discarded list
 	void discardHand(); // Wipes the hand
 	Card* findCard(Suit, Rank); // Find a specific card
+	Card* getCard(int) const;	//Get card by index
 	void newHand(int, Deck&); // Grabs a new set of cards for the player
 	int getScore() const; // Return the score
 	int valueOfDiscarded() const; // Function to help tabulating the score

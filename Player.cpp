@@ -82,3 +82,16 @@ std::vector<int> Player::currentHand() const{
 	}
 	return cardValues;
 }
+
+Card* Player::getCard(int cardNumber) const{
+	return hand_[cardNumber];
+}
+
+bool Player::canPlayCard(std::unordered_set<Card*> cards){
+	for (unsigned int i = 0; i < hand_.size(); i++){
+		if (cards.find(hand_[i]) != cards.end()){
+			return true;		
+		}
+	}
+	return false;
+}

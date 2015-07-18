@@ -53,3 +53,7 @@ void Computer::playCard(Card* card){
 	std::vector<Card *>::iterator it = std::find(hand_.begin(), hand_.end(), card);
 	hand_.erase(it);
 }
+
+bool Computer::isLegalPlay(int cardNumber, std::unordered_set<Card*>){
+	return true;
+}

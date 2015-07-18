@@ -59,6 +59,51 @@ void Game::playRound(){
 		//computer player action here
 	}
 }
+void Game::humanAction (Command c){
+	status_ = ACTIVE;
+	if (c.type == PLAY){
+		Card* card = getCardReference(c.card);
+		Human* human = dynamic_cast<Human*>(players_[currentPlayer_]);
+		human->playCard(card, possiblePlays_); // PLays the card
+		std::cout << "Player " << (currentPlayer_ + 1) << " plays " << *card << "." << std::endl;
+		table_.placeCard(card); // Place the card onto the type	
+	}	
+	else{
+		// Discard the desired card
+		Card* card = getCardReference(c.card);
+		players_[currentPlayer_]->discardCard(card);
+		std::cout << "Player " << (currentPlayer_ + 1) << " discards " << *card << "." << std::endl;
+	}
+	nextPlayer();
+}
+
+void Game::nextPlayer(){
+	currentPlayer_ = (currentPlayer_ + 1) %4;
+	if (currentPlayer_ == firstPlayer_){
+		status_ = END;
+	}
+}
+
+std::vector<int> Game::getTableCardValues() const{
+	std::vector<Card*> cards = table_.cardsOnTable();
+	std::vector<int> cardValues;
+	for (unsigned int i = 0; i < cards.size(); i++){
+		cardValues.push_back(cards[i]->getRank() + 13*cards[i]->getSuit());
+	}
+	return cardValues;
+}
+
+bool Game::isLegalPlay(int cardNumber) const{
+	return players_[currentPlayer_]->isLegalPlay(cardNumber, possiblePlays_);
+}
+
+bool Game::canPlayCard() const{
+	return players_[currentPlayer_]->canPlayCard(possiblePlays_);
+}
+
+Card* Game::getCard(int cardNumber) const{
+	return players_[currentPlayer_]->getCard(cardNumber);
+}
 
 std::vector<int> Game::currentHand() const{
 	return players_[currentPlayer_]->currentHand();
@@ -80,6 +125,7 @@ void Game::nextTurn(){
 			while (c.type == DECK && !quit_){
 				std::cout << ">";
 				std::cin >> c;
+/*
 				if (c.type == PLAY){
 					try{
 						Card* card = getCardReference(c.card);
@@ -93,6 +139,7 @@ void Game::nextTurn(){
 						c.type = DECK;
 					}
 				}
+
 				else if (c.type == DISCARD){
 					try{
 						// Discard the desired card
@@ -106,6 +153,7 @@ void Game::nextTurn(){
 						c.type = DECK;
 					}
 				}
+				
 				else if (c.type == DECK){
 					std::cout << deck_ << std::endl; // prints the deck
 				}
@@ -121,6 +169,7 @@ void Game::nextTurn(){
 					curPlayer--;
 					i--;
 				}
+				*/
 			}
 		}
 		else{

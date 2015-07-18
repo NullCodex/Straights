@@ -10,6 +10,7 @@ public:
 	~Computer();	//Destructor, using default
 	void legalPlays(std::unordered_set <Card*>);	//Main action function for Computer
 	Card* getLastCardPlayed();	//Returns the last Card played and sets it to null
+	bool isLegalPlay(int, std::unordered_set<Card*>);
 private:
 	Card* lastCardPlayed_;	//Keeps track of last card played, if value is null then the last action was a discard or no action (at start of game)
 	void playCard(Card*);	//Computer plays a card

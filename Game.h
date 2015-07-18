@@ -10,7 +10,7 @@
 #include "Table.h"
 #include "Command.h"
 
-enum RoundStatus {START, WAIT, END};
+enum RoundStatus {START, ACTIVE, WAIT, END};
 
 class Game{
 public:
@@ -25,12 +25,18 @@ public:
 	void endRound();	//Handles actions at the end of a round
 	void outputWinners() const;	//Outputs the winners
 	void updatePossiblePlays();	//Updates unordered set of possible plays the set of all cards that can be played
+	void nextPlayer();
+	bool isLegalPlay(int) const;
+	bool canPlayCard() const;
+	Card* getCard(int) const;
 	RoundStatus status() const;
 	std::vector<int> scores() const;
     std::vector<int> discards() const;
     int currentPlayerNumber() const;
     void playRound();
     std::vector<int> currentHand() const;
+    std::vector<int> getTableCardValues() const;
+    void humanAction(Command);
 private:
 	Card* getCardReference(Card);	//Given a card, returns the pointer in the deck to the card
 	void determineFirstPlayer();	//Determines which player has seven of spades

@@ -99,14 +99,28 @@ void Model::playerButtonClicked(int playerNumber)
 	else{
 		//ragequit
 	}
-	// can replace with computer here
 	notify();
 }
 
 void Model::handButtonClicked(int cardNumber)
 {
 	std::cout << cardNumber << std::endl;
+	if (game_->isLegalPlay(cardNumber)) {
+        Command command;
+        command.card = *game_->getCard(cardNumber);
+        if (game_->canPlayCard()) {
+            command.type = PLAY;
+        }
+        else {
+            command.type = DISCARD;
+        }
+       	game_->humanAction(command);
+    }
+    notify();
+}
 
+std::vector<int> Model::getTableCardValues() const{
+	return game_->getTableCardValues();
 }
 
 void Model::setupRound(){
@@ -122,6 +136,13 @@ void Model::setupRound(){
 
 bool Model::isRoundStatusStart() const{
 	if (game_->status() == START){
+		return true;
+	}
+	return false;
+}
+
+bool Model::isRoundStatusActive() const{
+	if (game_->status() == ACTIVE){
 		return true;
 	}
 	return false;

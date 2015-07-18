@@ -61,6 +61,6 @@ std::ostream &operator<<(std::ostream & sout, const Table& deck){
 }
 
 // Grabs the cards on table
-std::vector <Card*> Table::cardsOnTable(){
+std::vector <Card*> Table::cardsOnTable() const{
 	return cardsOnTable_;
 }

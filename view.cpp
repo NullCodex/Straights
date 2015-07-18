@@ -131,7 +131,7 @@ void View::update() {
 			displayHand(); //show hand
 		}
 		else{
-			//Active when player has made a move and we update the view
+			updateTable();
 		}
 	}
 	else{
@@ -212,9 +212,15 @@ void View::createDialog(std::string message){
 	GameDialog dialog(*this, message);
 }
 
-void View::updateTable()
-{
-	// Grab the current table and update the table image
+// Grab the current table and update the table image
+void View::updateTable(){
+	std::vector<int> cardValues = model_->getTableCardValues();
+	for (unsigned int i = 0; i < cardValues.size(); i++) {
+		int row = cardValues[i] / 13;
+		int column = cardValues[i] % 13;
+		card[row][column]->set(deck.image((Rank)column, (Suit)row));
+	}
+
 }
 
 void View::updateScores()

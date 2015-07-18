@@ -48,6 +48,7 @@ public:
     bool hasGameStarted() const;
     bool isHuman(int) const;
     bool isRoundStatusStart() const;
+    bool isRoundStatusActive() const;
     bool isRoundStatusWait() const;
     bool isRoundStatusEnd() const;
     std::vector<int> scores() const;
@@ -55,6 +56,8 @@ public:
     int currentPlayerNumber() const;
     void playRound();
     std::vector<int> currentHand() const;
+    std::string errorMessage() const;
+    std::vector<int> getTableCardValues() const;
 private:
     bool gameStatus_;
     int topCard_;

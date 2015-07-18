@@ -10,7 +10,7 @@ public:
 	void placeCard(Card*); //add card to table
 	Card* lastCardPlayed(); // Return a pointer to the last game played
 	void clear(); // Wipes the table
-	std::vector <Card*> cardsOnTable(); // Return the cards on table
+	std::vector <Card*> cardsOnTable() const; // Return the cards on table
 private:
 	std::vector <Card*> cardsOnTable_; // Cards on table
 	std::set<int> clubs_;  // Cards of suit clubs that were played
