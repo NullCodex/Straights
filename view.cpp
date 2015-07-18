@@ -120,17 +120,12 @@ void View::update() {
 			displayHand(); //show hand
 		}
 		else if (model_->isRoundStatusEnd()){
-			//stuff
 			endRound();
 		}
 		else{ //Active
 			updateTable();
 			nextTurn();
 		}
-	}
-	else{
-		resetGame();
-		//maybe call announce winners or update score or something
 	}
 	//createDialog("Winner");
 }
@@ -141,9 +136,18 @@ void View::endRound() {
 }
 
 void View::endRoundDialogClicked(){
-	controller_->newRound();	
+	if (model_->winnerExists()){
+		createDialog(model_->showWinners());
+		endGameDialogClicked();
+	}
+	else{
+		controller_->newRound();	
+	}
+	
 }
-
+void View::endGameDialogClicked(){
+	endGame();
+}
 void View::displayHand(){
 	std::vector<int> hand = model_->currentHand();
 	for (unsigned int i = 0; i < 13; i++) {
@@ -186,23 +190,6 @@ void View::enableRageOption(){
 	}
 }
 
-void View::resetGame() {
-	clearTable();
-	clearHand();
-	for (unsigned int i = 0; i < 4; i++) {
-		playerButtons[i].set_sensitive(true);
-		nameLabels[i].set_label("0 points");
-		discardLabels[i].set_label("0 discards");
-		handButtons[i]->set_sensitive(false);
-		playerFrames[i].drag_unhighlight();		
-		if (model_->isHuman(i)) {
-			playerButtons[i].set_label("Human");
-		}
-		else {
-			playerButtons[i].set_label("Computer");
-		}
-	}
-}
 void View::startRound(){
 	std::vector <int> scores = model_->scores();
 	std::vector <int> discards = model_->discards();
@@ -295,6 +282,7 @@ void View::clearHand() // tested will work
 	for(unsigned int i = 0; i < 13; i++)
 	{
 		handImages[i]->set(deck.null());
+		handButtons[i]->set_sensitive(false);
 	}
 }
 
@@ -314,6 +302,20 @@ void View::newGame()
 void View::endGame()
 {
 	controller_->endGame();
+	clearTable();
+	clearHand();
+	for (unsigned int i = 0; i < 4; i++) {
+		playerButtons[i].set_sensitive(true);
+		nameLabels[i].set_label("0 points");
+		discardLabels[i].set_label("0 discards");
+		playerFrames[i].drag_unhighlight();		
+		if (model_->isHuman(i)) {
+			playerButtons[i].set_label("Human");
+		}
+		else {
+			playerButtons[i].set_label("Computer");
+		}
+	}
 }
 
 void View::playerButtonClicked(int playerNumber)

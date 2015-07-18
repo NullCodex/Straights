@@ -170,16 +170,18 @@ std::string Game::endRound() {
 }
 
 // Output the winner/winners of the game
-void Game::outputWinners() const{
+std::string Game::getWinners() const{
 	std::set<int> scores;
+	std::stringstream message;
 	for (unsigned int i = 0; i < players_.size(); i++){
 		scores.insert(players_[i]->getScore());
 	}
 	for (unsigned int i = 0; i < players_.size(); i++){
 		if (*scores.begin() == players_[i]->getScore()){
-			std::cout << "Player " << (i + 1) << " wins!\n";
+			message << "Player " << (i + 1) << " wins!\n";
 		}
 	}
+	return message.str();
 }
 
 // Updates the possible plays for players

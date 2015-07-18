@@ -60,6 +60,14 @@ void Model::resetCards() {
   notify();
 }
 
+std::string Model::showWinners() const{
+	return game_->getWinners();
+}
+
+bool Model::winnerExists() const{
+	return game_->winnerExists();
+}
+
 void Model::newGame(std::string seed)
 {
 	if (gameStatus_){

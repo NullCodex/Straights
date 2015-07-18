@@ -103,7 +103,6 @@ private:
 
 
 	void newGame();
-	void resetGame();
 	void endGame();
 
 	void playerButtonClicked(int);
@@ -123,6 +122,7 @@ private:
 	void nextTurn();
 	void startRoundDialogClicked();
 	void endRoundDialogClicked();
+	void endGameDialogClicked();
 
 	void createDialog(std::string);
 }; // View

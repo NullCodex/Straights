@@ -52,6 +52,7 @@ public:
     bool isRoundStatusEnd() const;
     bool isLegal(int) const;
     bool isDiscardOnly() const;
+    bool winnerExists() const;
     std::vector<int> scores() const;
     std::vector<int> discards() const;
     int currentPlayerNumber() const;
@@ -61,6 +62,7 @@ public:
     std::vector<int> currentHand() const;
     std::string errorMessage() const;
     std::vector<int> getTableCardValues() const;
+    std::string showWinners() const;
 private:
     bool gameStatus_;
     int topCard_;
