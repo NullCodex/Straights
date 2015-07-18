@@ -321,6 +321,9 @@ void View::endGame()
 void View::playerButtonClicked(int playerNumber)
 {
 	controller_->playerButtonClicked(playerNumber);
+	if (!model_->hasGameStarted()){
+		changePlayerLabel(playerNumber);
+	}
 }
 
 void View::handButtonClicked(int cardNumber)

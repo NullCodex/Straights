@@ -89,7 +89,6 @@ void Model::endGame()
 		game_ = NULL;
 	}
 	gameStatus_ = false;
-	// probably call the rage quit function
 	std::cout << "endGame" << std::endl;
 	notify();
 }
