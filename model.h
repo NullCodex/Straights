@@ -43,7 +43,6 @@ public:
     void endGame();
     void playerButtonClicked(int);
     void handButtonClicked(int);
-    void setupRound();
     char playerType(int) const;
     bool hasGameStarted() const;
     bool isHuman(int) const;
@@ -54,7 +53,9 @@ public:
     std::vector<int> scores() const;
     std::vector<int> discards() const;
     int currentPlayerNumber() const;
+    void setupRound();
     void playRound();
+    std::string endRound();
     std::vector<int> currentHand() const;
     std::string errorMessage() const;
     std::vector<int> getTableCardValues() const;

@@ -132,6 +132,7 @@ void View::update() {
 		}
 		else if (model_->isRoundStatusEnd()){
 			//stuff
+			endRound();
 		}
 		else{ //Active
 			updateTable();
@@ -144,6 +145,15 @@ void View::update() {
 		//maybe call announce winners or update score or something
 	}
 	//createDialog("Winner");
+}
+
+void View::endRound() {
+	createDialog(model_->endRound());
+	endRoundDialogClicked();
+}
+
+void View::endRoundDialogClicked(){
+	controller_->newRound();	
 }
 
 void View::displayHand(){

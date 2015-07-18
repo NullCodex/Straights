@@ -16,7 +16,7 @@ public:
 	virtual bool isLegalPlay(int, std::unordered_set<Card*>) =0;
 	bool canPlayCard(std::unordered_set <Card*>);
 	void discardCard(Card*); // Discard a card
-	void outputDiscardList() const; // Prints the discarded list
+	std::string returnDiscardList() const; // Prints the discarded list
 	void discardHand(); // Wipes the hand
 	Card* findCard(Suit, Rank); // Find a specific card
 	Card* getCard(int) const;	//Get card by index

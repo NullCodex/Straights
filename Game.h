@@ -22,7 +22,7 @@ public:
 	void currentScore() const;	//Outputs the score
 	bool winnerExists() const;	//Returns if a player has over 80 points
 	bool hasQuit() const;	//Returns if a player has quit
-	void endRound();	//Handles actions at the end of a round
+	std::string endRound();	//Handles actions at the end of a round
 	void outputWinners() const;	//Outputs the winners
 	void updatePossiblePlays();	//Updates unordered set of possible plays the set of all cards that can be played
 	void nextPlayer();

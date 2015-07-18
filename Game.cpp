@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <iostream>
 #include <set>
+#include <sstream>
 
 // Game constructor: pushes back new player instances into the vector
 Game::Game(std::vector<char> players, int seed) : deck_(seed), playerTypes_(players), status_(START){
@@ -24,6 +25,7 @@ Game::~Game(){
 
 // Creates a new round, each player gets a new hand and we determine the first player ie who has 7S
 void Game::newRound(){
+	status_ = START;
 	table_.clear();
 	possiblePlays_.clear();
 	deck_.shuffle();
@@ -230,15 +232,16 @@ bool Game::hasQuit() const{
 }
 
 // Grabs the round score and also print the scores
-void Game::endRound() {
+std::string Game::endRound() {
+	std::stringstream message;
 	for (unsigned int i = 0; i < players_.size(); i++){
-		std::cout << "Player " << (i + 1) << "'s discards:";
-		players_[i]->outputDiscardList();
-		std::cout << "Player " << (i + 1) << "'s score: " << players_[i]->getScore() << " + " << players_[i]->valueOfDiscarded() <<
-			" = " << (players_[i]->getScore() + players_[i]->valueOfDiscarded()) << std::endl;
+		message << "Player " << (i + 1) << "'s discards:";
+		message << players_[i]->returnDiscardList();
+		message << "Player " << (i + 1) << "'s score: " << players_[i]->getScore() << " + " << players_[i]->valueOfDiscarded() <<
+			" = " << (players_[i]->getScore() + players_[i]->valueOfDiscarded()) << "\n";
 		players_[i]->updateScore();
 	}
-
+	return message.str();
 }
 
 // Output the winner/winners of the game

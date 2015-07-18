@@ -119,8 +119,10 @@ private:
 	void updateScores();
 	void updateDiscards();
 	void startRound();
+	void endRound();
 	void nextTurn();
 	void startRoundDialogClicked();
+	void endRoundDialogClicked();
 
 	void createDialog(std::string);
 }; // View

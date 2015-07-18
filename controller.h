@@ -25,6 +25,7 @@ public:
    void resetButtonClicked();
    void newGame(std::string);
    void endGame();
+   void newRound();
    void playerButtonClicked(int);
    void handButtonClicked(int);
    void playRound();

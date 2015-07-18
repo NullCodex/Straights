@@ -86,6 +86,10 @@ void Model::endGame()
 	notify();
 }
 
+std::string Model::endRound(){
+	return game_->endRound();
+}
+
 void Model::playerButtonClicked(int playerNumber)
 {
 	if (hasGameStarted() == false){ //game hasn't started, can still switch player types

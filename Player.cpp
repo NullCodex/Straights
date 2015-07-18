@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <algorithm>
-
+#include <string>
+#include <sstream>>
 
 Player::Player():score_(0){} // Player constructor sets the player score to 0
 Player::~Player(){} // Player destructor 
@@ -50,11 +51,13 @@ int Player::getScore() const
 }
 
 // Prints the player's discarded list
-void Player::outputDiscardList() const {
+std::string Player::returnDiscardList() const {
+	std::stringstream message;
 	for (int i = 0; i < discarded_.size(); i++){
-		std::cout << " " << *discarded_[i];
+		message << " " << *discarded_[i];
 	}
-	std::cout << std::endl;
+	message << "\n";
+	return message.str();
 }
 
 // Function to help tabulating the score, grabs the value of each discard
