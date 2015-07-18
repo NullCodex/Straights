@@ -160,7 +160,22 @@ void View::displayHand(){
 	for (unsigned int i = 0; i < 13; i++) {
 		if (i < hand.size()) {
 			handImages[i]->set(deck.image((Rank)(hand[i] % 13), (Suit)(hand[i] / 13)));
-			handButtons[i]->set_sensitive(true);
+			if(!model_->isDiscardOnly())
+			{
+				if(model_->isLegal(i))
+				{
+					handButtons[i]->set_sensitive(true);
+				}
+				else
+				{
+					handButtons[i]->set_sensitive(false);
+				}
+			}
+			else
+			{
+				handButtons[i]->set_sensitive(true);
+			}
+			
 		}
 		else {
 			handButtons[i]->set_sensitive(false);

@@ -168,6 +168,16 @@ bool Model::isRoundStatusEnd() const{
 	return false;
 }
 
+bool Model::isLegal(int cardNumber) const
+{
+	return game_->isLegalPlay(cardNumber);
+}
+
+bool Model::isDiscardOnly() const
+{
+	return !game_->canPlayCard();
+}
+
 std::vector<int> Model::scores() const {
 	return game_->scores();
 }

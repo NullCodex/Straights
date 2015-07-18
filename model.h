@@ -50,6 +50,8 @@ public:
     bool isRoundStatusActive() const;
     bool isRoundStatusWait() const;
     bool isRoundStatusEnd() const;
+    bool isLegal(int) const;
+    bool isDiscardOnly() const;
     std::vector<int> scores() const;
     std::vector<int> discards() const;
     int currentPlayerNumber() const;
