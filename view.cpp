@@ -262,7 +262,13 @@ void View::resetScore()
 
 void View::changePlayerLabel(int playerNumber) // use to change the label
 {
-	string label = "Human" == playerButtons[playerNumber].get_label() ? "Computer" : "Human";
+	string label;
+	if (model_->isHuman(playerNumber)){
+		label = "Human";
+	}
+	else{
+		label = "Computer";
+	}
 	playerButtons[playerNumber].set_label(label);
 }
 
