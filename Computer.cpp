@@ -5,7 +5,9 @@
 
 //Computer Constructor, takes no arguments
 // Use player constructor to set score
-Computer::Computer():Player() {}
+Computer::Computer():Player() {
+	lastCardPlayed_ = NULL;
+}
 
 //Constructor takes a player pointer and creates a computer
 //Used to convert a human to a computer for ragequit

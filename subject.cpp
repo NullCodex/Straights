@@ -29,3 +29,4 @@ void Subject::notify() {
   for (i = observers_.begin(); i != observers_.end(); ++i)
     (*i)->update();
 }
+
