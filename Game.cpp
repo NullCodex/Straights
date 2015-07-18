@@ -56,8 +56,18 @@ void Game::playRound(){
 		status_ = WAIT;
 	}
 	else{
-		//computer player action here
+		Computer* computer = dynamic_cast<Computer*>(players_[currentPlayer_]);
+		std::cout << "Player " << (currentPlayer_+1) << " ";
+		players_[currentPlayer_]->legalPlays(possiblePlays_);
+		Card* card = computer->getLastCardPlayed();
+		if (card != NULL){
+			table_.placeCard(card);
+		}
 	}
+}
+
+bool Game::isRoundOver() const{
+	return players_[currentPlayer_]->isHandEmpty();
 }
 void Game::humanAction (Command c){
 	status_ = ACTIVE;

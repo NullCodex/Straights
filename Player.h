@@ -26,6 +26,7 @@ public:
 	void updateScore(); // Update the player's score
 	int numDiscards() const;
 	std::vector<int> currentHand() const;
+	bool isHandEmpty() const;
 protected:
 	std::vector <Card*> hand_; //should only point to cards created by Deck
 	int score_; // Each player should have a score variable to keep track of the current scoring

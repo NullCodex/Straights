@@ -95,3 +95,9 @@ bool Player::canPlayCard(std::unordered_set<Card*> cards){
 	}
 	return false;
 }
+
+bool Player::isHandEmpty() const{
+	if (hand_.size() == 0){
+		return true;
+	}
+}

@@ -119,6 +119,7 @@ private:
 	void updateScores();
 	void updateDiscards();
 	void startRound();
+	void nextTurn();
 	void startRoundDialogClicked();
 
 	void createDialog(std::string);

@@ -130,8 +130,12 @@ void View::update() {
 			enableRageOption();
 			displayHand(); //show hand
 		}
-		else{
+		else if (model_->isRoundStatusEnd()){
+			//stuff
+		}
+		else{ //Active
 			updateTable();
+			nextTurn();
 		}
 	}
 	else{
@@ -206,6 +210,10 @@ void View::startRound(){
 
 void View::startRoundDialogClicked() {
 	controller_->playRound();
+}
+
+void View::nextTurn(){
+	controller_->playRound();	
 }
 
 void View::createDialog(std::string message){
