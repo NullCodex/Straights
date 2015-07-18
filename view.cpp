@@ -135,6 +135,7 @@ void View::update() {
 		}
 		else{ //Active
 			updateTable();
+			enableRageOption();
 			nextTurn();
 		}
 	}
@@ -163,6 +164,9 @@ void View::enableRageOption(){
 	for (unsigned int i = 0; i < 4; i++){
 		if (i!=model_->currentPlayerNumber()){
 			playerButtons[i].set_sensitive(false);
+		}
+		else{
+			playerButtons[i].set_sensitive(true);	
 		}
 	}
 }

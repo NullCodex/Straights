@@ -100,4 +100,5 @@ bool Player::isHandEmpty() const{
 	if (hand_.size() == 0){
 		return true;
 	}
+	return false;
 }

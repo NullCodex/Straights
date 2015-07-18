@@ -88,8 +88,8 @@ void Game::humanAction (Command c){
 }
 
 void Game::nextPlayer(){
-	currentPlayer_ = (currentPlayer_ + 1) %4;
-	if (currentPlayer_ == firstPlayer_){
+	currentPlayer_ = (currentPlayer_ + 1) % 4;
+	if (isRoundOver()){
 		status_ = END;
 	}
 }

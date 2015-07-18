@@ -105,17 +105,19 @@ void Model::playerButtonClicked(int playerNumber)
 void Model::handButtonClicked(int cardNumber)
 {
 	std::cout << cardNumber << std::endl;
-	if (game_->isLegalPlay(cardNumber)) {
-        Command command;
-        command.card = *game_->getCard(cardNumber);
-        if (game_->canPlayCard()) {
-            command.type = PLAY;
-        }
-        else {
-            command.type = DISCARD;
-        }
-       	game_->humanAction(command);
-    }
+	Command command;
+	command.card = *game_->getCard(cardNumber);
+	if (game_->canPlayCard()) {
+		if (game_->isLegalPlay(cardNumber)) {
+			command.type = PLAY;
+			game_->humanAction(command);
+		}
+	}
+	else{
+		command.type = DISCARD;
+		game_->humanAction(command);
+	}
+	
     notify();
 }
 
