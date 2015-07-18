@@ -11,7 +11,9 @@ Computer::Computer():Player() {
 
 //Constructor takes a player pointer and creates a computer
 //Used to convert a human to a computer for ragequit
-Computer::Computer(Player* player) : Player(*player){}
+Computer::Computer(Player* player) : Player(*player){
+	lastCardPlayed_ = NULL;	
+}
 
 //The main function that takes care of a computer player's action
 //Input parameter unordered_set of cards that keeps track of possible plays

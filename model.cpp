@@ -102,7 +102,7 @@ void Model::playerButtonClicked(int playerNumber)
 	}
 	else{
 		playerTypes_[playerNumber] = 'c';
-		game_->rageQuit();
+		game_->ragequit();
 	}
 	notify();
 }
