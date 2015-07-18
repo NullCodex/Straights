@@ -54,6 +54,6 @@ void Computer::playCard(Card* card){
 	hand_.erase(it);
 }
 
-bool Computer::isLegalPlay(int cardNumber, std::unordered_set<Card*>){
+bool Computer::isLegalPlay(int cardNumber, std::unordered_set<Card*> cards){
 	return true;
 }

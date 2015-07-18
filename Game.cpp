@@ -58,6 +58,7 @@ void Game::playRound(){
 		status_ = WAIT;
 	}
 	else{
+		status_ = ACTIVE;
 		Computer* computer = dynamic_cast<Computer*>(players_[currentPlayer_]);
 		std::cout << "Player " << (currentPlayer_+1) << " ";
 		players_[currentPlayer_]->legalPlays(possiblePlays_);
@@ -65,6 +66,7 @@ void Game::playRound(){
 		if (card != NULL){
 			table_.placeCard(card);
 		}
+		nextPlayer();
 	}
 }
 

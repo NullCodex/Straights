@@ -136,7 +136,6 @@ void View::update() {
 		}
 		else{ //Active
 			updateTable();
-			enableRageOption();
 			nextTurn();
 		}
 	}
