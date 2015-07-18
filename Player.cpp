@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>>
 
-Player::Player():score_(0) {} // Player constructor sets the player score to 0
+Player::Player():score_(0), numDiscarded_(0) {} // Player constructor sets the player score to 0
 Player::~Player(){} // Player destructor 
 
 // Function to check if a player has a certain card
@@ -29,6 +29,7 @@ void Player::discardCard(Card* card){
 	std::vector<Card *>::iterator it = std::find(hand_.begin(), hand_.end(), card);
 	discarded_.push_back(*it);
 	hand_.erase(it);
+	numDiscarded_ +=1;
 }
 
 // Wipe the player's hand
@@ -75,7 +76,7 @@ void Player::updateScore(){
 }
 
 int Player::numDiscards() const{
-	return discarded_.size();
+	return numDiscarded_;
 }
 
 std::vector<int> Player::currentHand() const{

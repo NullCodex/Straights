@@ -13,7 +13,6 @@ Game::Game(std::vector<char> players, int seed) : deck_(seed), playerTypes_(play
 		else{
 			players_.push_back(new Computer());
 		}
-		numberOfDiscards.push_back(0);
 	}
 }
 
@@ -65,6 +64,7 @@ void Game::playRound(){
 		players_[currentPlayer_]->legalPlays(possiblePlays_);
 		Card* card = computer->getLastCardPlayed();
 		if (card != NULL){
+			std::cout << "here\n";
 			table_.placeCard(card);
 		}
 		nextPlayer();
@@ -123,84 +123,6 @@ Card* Game::getCard(int cardNumber) const{
 std::vector<int> Game::currentHand() const{
 	return players_[currentPlayer_]->currentHand();
 }
-// Game function to control the flow of the game
-void Game::nextTurn(){
-	int curPlayer = firstPlayer_;
-	for (unsigned int i = 0; i < players_.size() && !quit_; i++){
-		updatePossiblePlays();
-		// Grab a command from the user if the player is a human type
-		if (playerTypes_[curPlayer] == 'h'){
-			Command c;
-			outputCurrentTable();
-			std::cout << "Your hand:" << *players_[curPlayer] << std::endl;
-			std::cout << "Legal plays:";
-			players_[curPlayer]->legalPlays(possiblePlays_);
-			std::cout << "\n";
-			c.type = DECK;
-			while (c.type == DECK && !quit_){
-				std::cout << ">";
-				std::cin >> c;
-/*
-				if (c.type == PLAY){
-					try{
-						Card* card = getCardReference(c.card);
-						Human* human = dynamic_cast<Human*>(players_[curPlayer]);
-						human->playCard(card, possiblePlays_); // PLays the card
-						std::cout << "Player " << (curPlayer + 1) << " plays " << *card << "." << std::endl;
-						table_.placeCard(card); // Place the card onto the type
-					}
-					catch (Human::InvalidCardException &e){
-						std::cout << "This is not a legal play." << std::endl;
-						c.type = DECK;
-					}
-				}
-
-				else if (c.type == DISCARD){
-					try{
-						// Discard the desired card
-						Card* card = getCardReference(c.card);
-						Human* human = dynamic_cast<Human*>(players_[curPlayer]);
-						human->discardCard(card, possiblePlays_);
-						std::cout << "Player " << (curPlayer + 1) << " discards " << *card << "." << std::endl;
-					}
-					catch (Human::CanPlayCardException &e){
-						std::cout << "You have a legal play. You may not discard." << std::endl;
-						c.type = DECK;
-					}
-				}
-				
-				else if (c.type == DECK){
-					std::cout << deck_ << std::endl; // prints the deck
-				}
-				else if (c.type == QUIT){
-					quit_ = true;
-				}
-				else{ //ragequit: replace the current human player with a computer player
-					Human* temp = dynamic_cast<Human*>(players_[curPlayer]);
-					players_[curPlayer] = new Computer(players_[curPlayer]);
-					delete temp;
-					std::cout << "Player " << (curPlayer + 1) << " ragequits. A computer will now take over." << std::endl;
-					playerTypes_[curPlayer] = 'c';
-					curPlayer--;
-					i--;
-				}
-				*/
-			}
-		}
-		else{
-			//Do Computer player's turn: basic ai which will play the first legal card if no legal plays exists, discard the first one
-			Computer* computer = dynamic_cast<Computer*>(players_[curPlayer]);
-			std::cout << "Player " << (curPlayer+1) << " ";
-			players_[curPlayer]->legalPlays(possiblePlays_);
-			Card* card = computer->getLastCardPlayed();
-			if (card != NULL){
-				table_.placeCard(card);
-			}
-			
-		}
-		curPlayer = (curPlayer + 1) % 4;
-	}
-}
 
 // Grabs the card reference
 Card* Game::getCardReference(Card card){
@@ -243,7 +165,6 @@ std::string Game::endRound() {
 		message << "Player " << (i + 1) << "'s score: " << players_[i]->getScore() << " + " << players_[i]->valueOfDiscarded() <<
 			" = " << (players_[i]->getScore() + players_[i]->valueOfDiscarded()) << "\n";
 		players_[i]->updateScore();
-		numberOfDiscards[i] = numberOfDiscards[i] + players_[i]->numDiscards();
 	}
 	return message.str();
 }
@@ -306,7 +227,11 @@ std::vector<int> Game::scores() const{
 }
 
 std::vector<int> Game::discards() const{
-	return numberOfDiscards;
+	std::vector<int> numDiscards;
+	for (int i =0; i < players_.size(); i++){
+		numDiscards.push_back(players_[i]->numDiscards());
+	}
+	return numDiscards;
 }
 
 void Game::ragequit(){

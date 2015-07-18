@@ -31,6 +31,7 @@ protected:
 	std::vector <Card*> hand_; //should only point to cards created by Deck
 	int score_; // Each player should have a score variable to keep track of the current scoring
 	std::vector <Card*> discarded_; // A vector of discarded cards
+	int numDiscarded_;
 };
 
 #endif

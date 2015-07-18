@@ -110,24 +110,13 @@ View::~View() {}
 
 
 void View::update() {
-	//Suit suit = model_->suit(1);
-	//Rank rank = model_->rank(1);
-	//clearTable();
-	//clearHand();
-	/*
-	if ( suit == NOSUIT ) 
-		tempCard.set( deck.null() );
-	else
-	    tempCard.set( deck.image(rank, suit) );
-	*/
-
-	//changePlayerLabel(1);
 	if (model_->hasGameStarted()){
 		if (model_->isRoundStatusStart()){
 			startRound();
 		}
 		else if (model_->isRoundStatusWait()){
 			enableRageOption();
+			updateDiscards();
 			displayHand(); //show hand
 		}
 		else if (model_->isRoundStatusEnd()){
