@@ -50,6 +50,7 @@ private:
 	Table table_;	//Keeps track of the cards on the table
 	bool quit_;	//Keeps track of if a player has quit the game
 	RoundStatus status_;
+	std::vector<int> numberOfDiscards;
 };
 
 

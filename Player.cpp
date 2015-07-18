@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>>
 
-Player::Player():score_(0){} // Player constructor sets the player score to 0
+Player::Player():score_(0) {} // Player constructor sets the player score to 0
 Player::~Player(){} // Player destructor 
 
 // Function to check if a player has a certain card

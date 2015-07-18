@@ -1,11 +1,11 @@
 DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
- /usr/lib/i386-linux-gnu/gdkmm-2.4/include/gdkmmconfig.h \
- /usr/lib/i386-linux-gnu/pangomm-1.4/include/pangommconfig.h \
- /usr/lib/i386-linux-gnu/glibmm-2.4/include/glibmmconfig.h \
+ /usr/lib/x86_64-linux-gnu/gdkmm-2.4/include/gdkmmconfig.h \
+ /usr/lib/x86_64-linux-gnu/pangomm-1.4/include/pangommconfig.h \
+ /usr/lib/x86_64-linux-gnu/glibmm-2.4/include/glibmmconfig.h \
  /usr/include/glibmm-2.4/glibmm.h /usr/include/glibmm-2.4/glibmm/thread.h \
  /usr/include/glib-2.0/glib.h /usr/include/glib-2.0/glib/galloca.h \
  /usr/include/glib-2.0/glib/gtypes.h \
- /usr/lib/i386-linux-gnu/glib-2.0/include/glibconfig.h \
+ /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h \
  /usr/include/glib-2.0/glib/gmacros.h \
  /usr/include/glib-2.0/glib/gversionmacros.h \
  /usr/include/glib-2.0/glib/garray.h \
@@ -28,7 +28,7 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glib-2.0/glib/gfileutils.h \
  /usr/include/glib-2.0/glib/ggettext.h /usr/include/glib-2.0/glib/ghash.h \
  /usr/include/glib-2.0/glib/glist.h /usr/include/glib-2.0/glib/gmem.h \
- /usr/include/glib-2.0/glib/ghmac.h \
+ /usr/include/glib-2.0/glib/gnode.h /usr/include/glib-2.0/glib/ghmac.h \
  /usr/include/glib-2.0/glib/gchecksum.h \
  /usr/include/glib-2.0/glib/ghook.h \
  /usr/include/glib-2.0/glib/ghostutils.h \
@@ -41,7 +41,7 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glib-2.0/glib/gmappedfile.h \
  /usr/include/glib-2.0/glib/gmarkup.h \
  /usr/include/glib-2.0/glib/gmessages.h \
- /usr/include/glib-2.0/glib/gnode.h /usr/include/glib-2.0/glib/goption.h \
+ /usr/include/glib-2.0/glib/goption.h \
  /usr/include/glib-2.0/glib/gpattern.h \
  /usr/include/glib-2.0/glib/gprimes.h /usr/include/glib-2.0/glib/gqsort.h \
  /usr/include/glib-2.0/glib/gqueue.h /usr/include/glib-2.0/glib/grand.h \
@@ -75,7 +75,7 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/sigc++-2.0/sigc++/sigc++.h \
  /usr/include/sigc++-2.0/sigc++/signal.h \
  /usr/include/sigc++-2.0/sigc++/signal_base.h \
- /usr/lib/i386-linux-gnu/sigc++-2.0/include/sigc++config.h \
+ /usr/lib/x86_64-linux-gnu/sigc++-2.0/include/sigc++config.h \
  /usr/include/sigc++-2.0/sigc++/type_traits.h \
  /usr/include/sigc++-2.0/sigc++/trackable.h \
  /usr/include/sigc++-2.0/sigc++/functors/slot.h \
@@ -108,7 +108,8 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glibmm-2.4/glibmm/arrayhandle.h \
  /usr/include/glibmm-2.4/glibmm/containerhandle_shared.h \
  /usr/include/glibmm-2.4/glibmm/refptr.h \
- /usr/include/glibmm-2.4/glibmm/wrap.h \
+ /usr/include/glibmm-2.4/glibmm/variant.h \
+ /usr/include/glibmm-2.4/glibmm/varianttype.h \
  /usr/include/glib-2.0/glib-object.h \
  /usr/include/glib-2.0/gobject/gbinding.h \
  /usr/include/glib-2.0/gobject/gobject.h \
@@ -127,7 +128,11 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glib-2.0/gobject/gtypeplugin.h \
  /usr/include/glib-2.0/gobject/gvaluearray.h \
  /usr/include/glib-2.0/gobject/gvaluetypes.h \
+ /usr/include/glibmm-2.4/glibmm/variantiter.h \
+ /usr/include/glibmm-2.4/glibmm/variant_basictypes.h \
+ /usr/include/glibmm-2.4/glibmm/wrap.h \
  /usr/include/glibmm-2.4/glibmm/objectbase.h \
+ /usr/include/glibmm-2.4/glibmm/class.h \
  /usr/include/glibmm-2.4/glibmm/signalproxy.h \
  /usr/include/glibmm-2.4/glibmm/signalproxy_connectionnode.h \
  /usr/include/glibmm-2.4/glibmm/propertyproxy.h \
@@ -138,10 +143,14 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glibmm-2.4/glibmm/quark.h \
  /usr/include/glibmm-2.4/glibmm/debug.h \
  /usr/include/glibmm-2.4/glibmm/balancedtree.h \
+ /usr/include/glibmm-2.4/glibmm/base64.h \
+ /usr/include/glibmm-2.4/glibmm/bytearray.h \
+ /usr/include/sigc++-2.0/sigc++/slot.h \
+ /usr/include/glibmm-2.4/glibmm/bytes.h \
  /usr/include/glibmm-2.4/glibmm/checksum.h \
- /usr/include/glibmm-2.4/glibmm/class.h \
  /usr/include/glibmm-2.4/glibmm/convert.h \
  /usr/include/glibmm-2.4/glibmm/date.h \
+ /usr/include/glibmm-2.4/glibmm/datetime.h \
  /usr/include/glibmm-2.4/glibmm/dispatcher.h \
  /usr/include/glibmm-2.4/glibmm/main.h \
  /usr/include/glibmm-2.4/glibmm/priorities.h \
@@ -165,7 +174,6 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glibmm-2.4/glibmm/optioncontext.h \
  /usr/include/glibmm-2.4/glibmm/optionentry.h \
  /usr/include/glibmm-2.4/glibmm/optiongroup.h \
- /usr/include/sigc++-2.0/sigc++/slot.h \
  /usr/include/glibmm-2.4/glibmm/pattern.h \
  /usr/include/glibmm-2.4/glibmm/property.h \
  /usr/include/glibmm-2.4/glibmm/random.h \
@@ -176,12 +184,10 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glibmm-2.4/glibmm/stringutils.h \
  /usr/include/glibmm-2.4/glibmm/threadpool.h \
  /usr/include/glibmm-2.4/glibmm/timer.h \
+ /usr/include/glibmm-2.4/glibmm/timezone.h \
  /usr/include/glibmm-2.4/glibmm/uriutils.h \
  /usr/include/glibmm-2.4/glibmm/valuearray.h \
- /usr/include/glibmm-2.4/glibmm/variant.h \
- /usr/include/glibmm-2.4/glibmm/varianttype.h \
- /usr/include/glibmm-2.4/glibmm/variantiter.h \
- /usr/include/glibmm-2.4/glibmm/variant_basictypes.h \
+ /usr/include/glibmm-2.4/glibmm/variantdict.h \
  /usr/include/glibmm-2.4/glibmm/vectorutils.h \
  /usr/include/gdkmm-2.4/gdkmm/drawable.h \
  /usr/include/pangomm-1.4/pangomm/font.h \
@@ -228,17 +234,17 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/cairomm-1.0/cairomm/refptr.h \
  /usr/include/cairomm-1.0/cairomm/fontoptions.h \
  /usr/include/cairo/cairo-ft.h /usr/include/cairo/cairo.h \
- /usr/include/freetype2/freetype/freetype.h \
- /usr/include/freetype2/freetype/config/ftconfig.h \
- /usr/include/freetype2/freetype/config/ftoption.h \
- /usr/include/freetype2/freetype/config/ftstdlib.h \
- /usr/include/freetype2/freetype/fterrors.h \
- /usr/include/freetype2/freetype/ftmoderr.h \
- /usr/include/freetype2/freetype/fterrdef.h \
- /usr/include/freetype2/freetype/fttypes.h \
- /usr/include/freetype2/freetype/ftsystem.h \
- /usr/include/freetype2/freetype/ftimage.h /usr/include/cairo/cairo-pdf.h \
- /usr/include/cairo/cairo-ps.h /usr/include/cairo/cairo-svg.h \
+ /usr/include/freetype2/ft2build.h \
+ /usr/include/freetype2/config/ftheader.h \
+ /usr/include/freetype2/freetype.h \
+ /usr/include/freetype2/config/ftconfig.h \
+ /usr/include/freetype2/config/ftoption.h \
+ /usr/include/freetype2/config/ftstdlib.h \
+ /usr/include/freetype2/fttypes.h /usr/include/freetype2/ftsystem.h \
+ /usr/include/freetype2/ftimage.h /usr/include/freetype2/fterrors.h \
+ /usr/include/freetype2/ftmoderr.h /usr/include/freetype2/fterrdef.h \
+ /usr/include/cairo/cairo-pdf.h /usr/include/cairo/cairo-ps.h \
+ /usr/include/cairo/cairo-svg.h \
  /usr/include/cairomm-1.0/cairomm/fontface.h \
  /usr/include/cairomm-1.0/cairomm/matrix.h \
  /usr/include/cairomm-1.0/cairomm/pattern.h \
@@ -272,6 +278,7 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glib-2.0/gio/gbufferedoutputstream.h \
  /usr/include/glib-2.0/gio/gfilteroutputstream.h \
  /usr/include/glib-2.0/gio/goutputstream.h \
+ /usr/include/glib-2.0/gio/gbytesicon.h \
  /usr/include/glib-2.0/gio/gcancellable.h \
  /usr/include/glib-2.0/gio/gcharsetconverter.h \
  /usr/include/glib-2.0/gio/gconverter.h \
@@ -327,6 +334,8 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glib-2.0/gio/gpermission.h \
  /usr/include/glib-2.0/gio/gpollableinputstream.h \
  /usr/include/glib-2.0/gio/gpollableoutputstream.h \
+ /usr/include/glib-2.0/gio/gpollableutils.h \
+ /usr/include/glib-2.0/gio/gpropertyaction.h \
  /usr/include/glib-2.0/gio/gproxy.h \
  /usr/include/glib-2.0/gio/gproxyaddress.h \
  /usr/include/glib-2.0/gio/gproxyaddressenumerator.h \
@@ -351,8 +360,13 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glib-2.0/gio/gsocketlistener.h \
  /usr/include/glib-2.0/gio/gsocketservice.h \
  /usr/include/glib-2.0/gio/gsrvtarget.h \
+ /usr/include/glib-2.0/gio/gsimpleproxyresolver.h \
+ /usr/include/glib-2.0/gio/gtask.h \
+ /usr/include/glib-2.0/gio/gsubprocess.h \
+ /usr/include/glib-2.0/gio/gsubprocesslauncher.h \
  /usr/include/glib-2.0/gio/gtcpconnection.h \
  /usr/include/glib-2.0/gio/gtcpwrapperconnection.h \
+ /usr/include/glib-2.0/gio/gtestdbus.h \
  /usr/include/glib-2.0/gio/gthemedicon.h \
  /usr/include/glib-2.0/gio/gthreadedsocketservice.h \
  /usr/include/glib-2.0/gio/gtlsbackend.h \
@@ -381,6 +395,7 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/glib-2.0/gio/gmenumodel.h /usr/include/glib-2.0/gio/gmenu.h \
  /usr/include/glib-2.0/gio/gmenuexporter.h \
  /usr/include/glib-2.0/gio/gdbusmenumodel.h \
+ /usr/include/glib-2.0/gio/gnotification.h \
  /usr/include/gtk-2.0/gdk/gdkscreen.h /usr/include/gtk-2.0/gdk/gdktypes.h \
  /usr/include/pango-1.0/pango/pango.h \
  /usr/include/pango-1.0/pango/pango-engine.h \
@@ -388,7 +403,7 @@ DeckGUI.o: DeckGUI.cpp DeckGUI.h /usr/include/gdkmm-2.4/gdkmm/pixbuf.h \
  /usr/include/pango-1.0/pango/pango-features.h \
  /usr/include/pango-1.0/pango/pango-renderer.h \
  /usr/include/pango-1.0/pango/pango-utils.h \
- /usr/lib/i386-linux-gnu/gtk-2.0/include/gdkconfig.h \
+ /usr/lib/x86_64-linux-gnu/gtk-2.0/include/gdkconfig.h \
  /usr/include/gtk-2.0/gdk/gdkdisplay.h \
  /usr/include/gtk-2.0/gdk/gdkevents.h /usr/include/gtk-2.0/gdk/gdkcolor.h \
  /usr/include/gtk-2.0/gdk/gdkdnd.h /usr/include/gtk-2.0/gdk/gdkinput.h \

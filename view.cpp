@@ -88,7 +88,7 @@ View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("S
 		handImages[y] = Gtk::manage(new Gtk::Image( temp));
 		handButtons[y] = Gtk::manage(new Gtk::Button());
 		handButtons[y]->set_image(*handImages[y]);
-		//handButtons[y]->set_sensitive(false);
+		handButtons[y]->set_sensitive(false);
 		handButtons[y]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &View::handButtonClicked), y));
 		handRow.add(*handButtons[y]);
 	}
@@ -202,7 +202,7 @@ void View::resetGame() {
 		playerButtons[i].set_sensitive(true);
 		nameLabels[i].set_label("0 points");
 		discardLabels[i].set_label("0 discards");
-		
+		handButtons[i]->set_sensitive(false);		
 		if (model_->isHuman(i)) {
 			playerButtons[i].set_label("Human");
 		}
@@ -220,15 +220,7 @@ void View::startRound(){
 	updateDiscards();
 	std::stringstream message;
 	for (unsigned int i = 0; i < 4; i++){
-		message << scores[i] << " points";
-		nameLabels[i].set_label(message.str());
-		message.str(std::string()); //clear stream
-
-		message << discards[i] << " discards";
-		discardLabels[i].set_text(message.str());
-		message.str(std::string()); //clear stream
-
-		playerButtons[i].set_sensitive(true);
+		playerButtons[i].set_sensitive(false);
 		playerButtons[i].set_label("Rage!");
 	}
 	message << "A new round begins. It's player " << model_->currentPlayerNumber()+1 << "'s turn to play.";

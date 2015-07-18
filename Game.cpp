@@ -13,6 +13,7 @@ Game::Game(std::vector<char> players, int seed) : deck_(seed), playerTypes_(play
 		else{
 			players_.push_back(new Computer());
 		}
+		numberOfDiscards.push_back(0);
 	}
 }
 
@@ -242,6 +243,7 @@ std::string Game::endRound() {
 		message << "Player " << (i + 1) << "'s score: " << players_[i]->getScore() << " + " << players_[i]->valueOfDiscarded() <<
 			" = " << (players_[i]->getScore() + players_[i]->valueOfDiscarded()) << "\n";
 		players_[i]->updateScore();
+		numberOfDiscards[i] = numberOfDiscards[i] + players_[i]->numDiscards();
 	}
 	return message.str();
 }
@@ -304,9 +306,5 @@ std::vector<int> Game::scores() const{
 }
 
 std::vector<int> Game::discards() const{
-	std::vector<int> playerDiscards;
-	for (int i = 0; i < 4; i++){
-		playerDiscards.push_back(players_[i]->numDiscards());
-	}
-	return playerDiscards;
+	return numberOfDiscards;
 }
