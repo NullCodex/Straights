@@ -152,3 +152,12 @@ std::vector<int> Model::discards() const {
 int Model::currentPlayerNumber() const{
 	return game_->currentPlayerNumber();
 }
+
+void Model::playRound() {
+	game_->playRound();
+	notify();
+}
+
+std::vector<int> Model::currentHand() const{
+	return game_->currentHand();
+}

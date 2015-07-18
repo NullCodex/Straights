@@ -45,3 +45,7 @@ void Controller::handButtonClicked(int cardNumber)
 {
 	model_->handButtonClicked(cardNumber);
 }
+
+void Controller::playRound(){
+	model_->playRound();
+}

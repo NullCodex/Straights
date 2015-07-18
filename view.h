@@ -108,6 +108,8 @@ private:
 
 	void playerButtonClicked(int);
 	void handButtonClicked(int);
+	void enableRageOption();
+	void displayHand();
 
 	void changePlayerLabel(int);
 	void clearTable();
@@ -115,6 +117,7 @@ private:
 	void resetScore();
 	void updateTable();
 	void updateScores();
+	void updateDiscards();
 	void startRound();
 	void startRoundDialogClicked();
 

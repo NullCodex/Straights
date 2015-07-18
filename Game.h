@@ -29,6 +29,8 @@ public:
 	std::vector<int> scores() const;
     std::vector<int> discards() const;
     int currentPlayerNumber() const;
+    void playRound();
+    std::vector<int> currentHand() const;
 private:
 	Card* getCardReference(Card);	//Given a card, returns the pointer in the deck to the card
 	void determineFirstPlayer();	//Determines which player has seven of spades

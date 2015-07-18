@@ -53,6 +53,8 @@ public:
     std::vector<int> scores() const;
     std::vector<int> discards() const;
     int currentPlayerNumber() const;
+    void playRound();
+    std::vector<int> currentHand() const;
 private:
     bool gameStatus_;
     int topCard_;

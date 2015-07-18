@@ -50,6 +50,19 @@ void Game::determineFirstPlayer(){
 	}
 }
 
+void Game::playRound(){
+	updatePossiblePlays();
+	if (playerTypes_[currentPlayer_] == 'h'){
+		status_ = WAIT;
+	}
+	else{
+		//computer player action here
+	}
+}
+
+std::vector<int> Game::currentHand() const{
+	return players_[currentPlayer_]->currentHand();
+}
 // Game function to control the flow of the game
 void Game::nextTurn(){
 	int curPlayer = firstPlayer_;

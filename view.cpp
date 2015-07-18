@@ -126,12 +126,41 @@ void View::update() {
 		if (model_->isRoundStatusStart()){
 			startRound();
 		}
+		else if (model_->isRoundStatusWait()){
+			enableRageOption();
+			displayHand(); //show hand
+		}
+		else{
+			//Active when player has made a move and we update the view
+		}
 	}
 	else{
 		resetGame();
 		//maybe call announce winners or update score or something
 	}
 	//createDialog("Winner");
+}
+
+void View::displayHand(){
+	std::vector<int> hand = model_->currentHand();
+	for (unsigned int i = 0; i < 13; i++) {
+		if (i < hand.size()) {
+			handImages[i]->set(deck.image((Rank)(hand[i] % 13), (Suit)(hand[i] / 13)));
+			handButtons[i]->set_sensitive(true);
+		}
+		else {
+			handButtons[i]->set_sensitive(false);
+			handImages[i]->set(deck.null());
+		}
+	}
+}
+
+void View::enableRageOption(){
+	for (unsigned int i = 0; i < 4; i++){
+		if (i!=model_->currentPlayerNumber()){
+			playerButtons[i].set_sensitive(false);
+		}
+	}
 }
 
 void View::resetGame() {
@@ -155,8 +184,10 @@ void View::startRound(){
 	std::vector <int> discards = model_->discards();
 	clearHand();
 	clearTable();
+	updateScores();
+	updateDiscards();
 	std::stringstream message;
-	for (int i = 0; i < 4; i++){
+	for (unsigned int i = 0; i < 4; i++){
 		message << scores[i] << " points";
 		nameLabels[i].set_label(message.str());
 		message.str(std::string()); //clear stream
@@ -169,13 +200,12 @@ void View::startRound(){
 		playerButtons[i].set_label("Rage!");
 	}
 	message << "A new round begins. It's player " << model_->currentPlayerNumber()+1 << "'s turn to play.";
-	std::cout << message.str() << std::endl;
 	createDialog(message.str());
 	startRoundDialogClicked();
 }
 
 void View::startRoundDialogClicked() {
-
+	controller_->playRound();
 }
 
 void View::createDialog(std::string message){
@@ -189,9 +219,23 @@ void View::updateTable()
 
 void View::updateScores()
 {
+	std::vector <int> scores = model_->scores();
+	std::stringstream message;
 	for(unsigned int i = 0; i < 4; i++)
 	{
-		// update the nameLabels here
+		message << scores[i] << " points";
+		nameLabels[i].set_label(message.str());
+		message.str(std::string()); //clear stream
+	}
+}
+
+void View::updateDiscards(){
+	std::vector <int> discards = model_->discards();
+	std::stringstream message;
+	for(unsigned int i = 0; i < 4; i++){
+		message << discards[i] << " discards";
+		discardLabels[i].set_text(message.str());
+		message.str(std::string()); //clear stream
 	}
 }
 

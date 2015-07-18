@@ -27,6 +27,7 @@ public:
    void endGame();
    void playerButtonClicked(int);
    void handButtonClicked(int);
+   void playRound();
 private:
    Model *model_;
 }; // Controller

@@ -74,3 +74,11 @@ void Player::updateScore(){
 int Player::numDiscards() const{
 	return discarded_.size();
 }
+
+std::vector<int> Player::currentHand() const{
+	std::vector<int> cardValues;
+	for (unsigned int i = 0; i < hand_.size(); i++){
+		cardValues.push_back(hand_[i]->getRank() + 13*hand_[i]->getSuit());
+	}
+	return cardValues;
+}
