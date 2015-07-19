@@ -316,6 +316,7 @@ void View::clearHand() // tested will work
 // Calls the controller for a new game
 void View::newGame()
 {
+	historyButton.set_sensitive(true);
 	controller_->newGame(seedField.get_text());
 }
 
@@ -337,6 +338,7 @@ void View::endGame()
 			playerButtons[i].set_label("Computer");
 		}
 	}
+	historyButton.set_sensitive(false);
 }
 
 // Display the game history 
