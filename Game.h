@@ -39,6 +39,8 @@ public:
     void humanAction(Command);
     bool isRoundOver() const;
     void ragequit();
+    std::string getGameHistory() const;
+    void resetGameHistory();
 private:
 	Card* getCardReference(Card);	//Given a card, returns the pointer in the deck to the card
 	void determineFirstPlayer();	//Determines which player has seven of spades
@@ -51,6 +53,7 @@ private:
 	Table table_;	//Keeps track of the cards on the table
 	bool quit_;	//Keeps track of if a player has quit the game
 	RoundStatus status_;
+	std::string gameMessage_;
 };
 
 

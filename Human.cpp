@@ -27,6 +27,7 @@ void Human::playCard(Card* card, std::unordered_set<Card*> cards){
 	hand_.erase(it); //remove card from hand
 }
 
+// Check if the card is a legal play
 bool Human::isLegalPlay(int cardNumber, std::unordered_set<Card*> cards){
 	if (cards.find(hand_[cardNumber]) == cards.end()){
 		return false;

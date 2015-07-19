@@ -33,12 +33,11 @@ enum Suits { DIAMOND, CLUB, HEART, SPADE, NOSUIT };
 */
 
 class Model : public Subject {
+// Public model functions
 public:
     Model();
     Suit suit(int);
     Rank rank(int);
-    void nextCard();
-    void resetCards();
     void newGame(std::string);
     void endGame();
     void playerButtonClicked(int);
@@ -63,6 +62,9 @@ public:
     std::string errorMessage() const;
     std::vector<int> getTableCardValues() const;
     std::string showWinners() const;
+    std::string gameHistory() const;
+
+// Private variables
 private:
     bool gameStatus_;
     int topCard_;

@@ -1,9 +1,9 @@
 view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glibmm-2.4/glibmm.h \
- /usr/lib/x86_64-linux-gnu/glibmm-2.4/include/glibmmconfig.h \
+ /usr/lib/i386-linux-gnu/glibmm-2.4/include/glibmmconfig.h \
  /usr/include/glibmm-2.4/glibmm/thread.h /usr/include/glib-2.0/glib.h \
  /usr/include/glib-2.0/glib/galloca.h /usr/include/glib-2.0/glib/gtypes.h \
- /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h \
+ /usr/lib/i386-linux-gnu/glib-2.0/include/glibconfig.h \
  /usr/include/glib-2.0/glib/gmacros.h \
  /usr/include/glib-2.0/glib/gversionmacros.h \
  /usr/include/glib-2.0/glib/garray.h \
@@ -26,7 +26,7 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glib-2.0/glib/gfileutils.h \
  /usr/include/glib-2.0/glib/ggettext.h /usr/include/glib-2.0/glib/ghash.h \
  /usr/include/glib-2.0/glib/glist.h /usr/include/glib-2.0/glib/gmem.h \
- /usr/include/glib-2.0/glib/gnode.h /usr/include/glib-2.0/glib/ghmac.h \
+ /usr/include/glib-2.0/glib/ghmac.h \
  /usr/include/glib-2.0/glib/gchecksum.h \
  /usr/include/glib-2.0/glib/ghook.h \
  /usr/include/glib-2.0/glib/ghostutils.h \
@@ -39,7 +39,7 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glib-2.0/glib/gmappedfile.h \
  /usr/include/glib-2.0/glib/gmarkup.h \
  /usr/include/glib-2.0/glib/gmessages.h \
- /usr/include/glib-2.0/glib/goption.h \
+ /usr/include/glib-2.0/glib/gnode.h /usr/include/glib-2.0/glib/goption.h \
  /usr/include/glib-2.0/glib/gpattern.h \
  /usr/include/glib-2.0/glib/gprimes.h /usr/include/glib-2.0/glib/gqsort.h \
  /usr/include/glib-2.0/glib/gqueue.h /usr/include/glib-2.0/glib/grand.h \
@@ -73,7 +73,7 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/sigc++-2.0/sigc++/sigc++.h \
  /usr/include/sigc++-2.0/sigc++/signal.h \
  /usr/include/sigc++-2.0/sigc++/signal_base.h \
- /usr/lib/x86_64-linux-gnu/sigc++-2.0/include/sigc++config.h \
+ /usr/lib/i386-linux-gnu/sigc++-2.0/include/sigc++config.h \
  /usr/include/sigc++-2.0/sigc++/type_traits.h \
  /usr/include/sigc++-2.0/sigc++/trackable.h \
  /usr/include/sigc++-2.0/sigc++/functors/slot.h \
@@ -106,8 +106,7 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glibmm-2.4/glibmm/arrayhandle.h \
  /usr/include/glibmm-2.4/glibmm/containerhandle_shared.h \
  /usr/include/glibmm-2.4/glibmm/refptr.h \
- /usr/include/glibmm-2.4/glibmm/variant.h \
- /usr/include/glibmm-2.4/glibmm/varianttype.h \
+ /usr/include/glibmm-2.4/glibmm/wrap.h \
  /usr/include/glib-2.0/glib-object.h \
  /usr/include/glib-2.0/gobject/gbinding.h \
  /usr/include/glib-2.0/gobject/gobject.h \
@@ -126,11 +125,7 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glib-2.0/gobject/gtypeplugin.h \
  /usr/include/glib-2.0/gobject/gvaluearray.h \
  /usr/include/glib-2.0/gobject/gvaluetypes.h \
- /usr/include/glibmm-2.4/glibmm/variantiter.h \
- /usr/include/glibmm-2.4/glibmm/variant_basictypes.h \
- /usr/include/glibmm-2.4/glibmm/wrap.h \
  /usr/include/glibmm-2.4/glibmm/objectbase.h \
- /usr/include/glibmm-2.4/glibmm/class.h \
  /usr/include/glibmm-2.4/glibmm/signalproxy.h \
  /usr/include/glibmm-2.4/glibmm/signalproxy_connectionnode.h \
  /usr/include/glibmm-2.4/glibmm/propertyproxy.h \
@@ -141,14 +136,10 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glibmm-2.4/glibmm/quark.h \
  /usr/include/glibmm-2.4/glibmm/debug.h \
  /usr/include/glibmm-2.4/glibmm/balancedtree.h \
- /usr/include/glibmm-2.4/glibmm/base64.h \
- /usr/include/glibmm-2.4/glibmm/bytearray.h \
- /usr/include/sigc++-2.0/sigc++/slot.h \
- /usr/include/glibmm-2.4/glibmm/bytes.h \
  /usr/include/glibmm-2.4/glibmm/checksum.h \
+ /usr/include/glibmm-2.4/glibmm/class.h \
  /usr/include/glibmm-2.4/glibmm/convert.h \
  /usr/include/glibmm-2.4/glibmm/date.h \
- /usr/include/glibmm-2.4/glibmm/datetime.h \
  /usr/include/glibmm-2.4/glibmm/dispatcher.h \
  /usr/include/glibmm-2.4/glibmm/main.h \
  /usr/include/glibmm-2.4/glibmm/priorities.h \
@@ -172,6 +163,7 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glibmm-2.4/glibmm/optioncontext.h \
  /usr/include/glibmm-2.4/glibmm/optionentry.h \
  /usr/include/glibmm-2.4/glibmm/optiongroup.h \
+ /usr/include/sigc++-2.0/sigc++/slot.h \
  /usr/include/glibmm-2.4/glibmm/pattern.h \
  /usr/include/glibmm-2.4/glibmm/property.h \
  /usr/include/glibmm-2.4/glibmm/random.h \
@@ -182,12 +174,25 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glibmm-2.4/glibmm/stringutils.h \
  /usr/include/glibmm-2.4/glibmm/threadpool.h \
  /usr/include/glibmm-2.4/glibmm/timer.h \
- /usr/include/glibmm-2.4/glibmm/timezone.h \
  /usr/include/glibmm-2.4/glibmm/uriutils.h \
  /usr/include/glibmm-2.4/glibmm/valuearray.h \
- /usr/include/glibmm-2.4/glibmm/variantdict.h \
+ /usr/include/glibmm-2.4/glibmm/variant.h \
+ /usr/include/glibmm-2.4/glibmm/varianttype.h \
+ /usr/include/glibmm-2.4/glibmm/variantiter.h \
+ /usr/include/glibmm-2.4/glibmm/variant_basictypes.h \
  /usr/include/glibmm-2.4/glibmm/vectorutils.h \
  /usr/include/giomm-2.4/giomm.h /usr/include/giomm-2.4/giomm/action.h \
+ /usr/include/giomm-2.4/giomm/actiongroup.h \
+ /usr/include/giomm-2.4/giomm/appinfo.h \
+ /usr/include/giomm-2.4/giomm/applaunchcontext.h \
+ /usr/include/giomm-2.4/giomm/icon.h \
+ /usr/include/giomm-2.4/giomm/application.h \
+ /usr/include/giomm-2.4/giomm/actionmap.h \
+ /usr/include/giomm-2.4/giomm/applicationcommandline.h \
+ /usr/include/giomm-2.4/giomm/file.h \
+ /usr/include/giomm-2.4/giomm/asyncresult.h \
+ /usr/include/giomm-2.4/giomm/fileattributeinfolist.h \
+ /usr/include/giomm-2.4/giomm/fileattributeinfo.h \
  /usr/include/glib-2.0/gio/gio.h /usr/include/glib-2.0/gio/giotypes.h \
  /usr/include/glib-2.0/gio/gioenums.h /usr/include/glib-2.0/gio/gaction.h \
  /usr/include/glib-2.0/gio/gactiongroup.h \
@@ -205,7 +210,6 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glib-2.0/gio/gbufferedoutputstream.h \
  /usr/include/glib-2.0/gio/gfilteroutputstream.h \
  /usr/include/glib-2.0/gio/goutputstream.h \
- /usr/include/glib-2.0/gio/gbytesicon.h \
  /usr/include/glib-2.0/gio/gcancellable.h \
  /usr/include/glib-2.0/gio/gcharsetconverter.h \
  /usr/include/glib-2.0/gio/gconverter.h \
@@ -261,8 +265,6 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glib-2.0/gio/gpermission.h \
  /usr/include/glib-2.0/gio/gpollableinputstream.h \
  /usr/include/glib-2.0/gio/gpollableoutputstream.h \
- /usr/include/glib-2.0/gio/gpollableutils.h \
- /usr/include/glib-2.0/gio/gpropertyaction.h \
  /usr/include/glib-2.0/gio/gproxy.h \
  /usr/include/glib-2.0/gio/gproxyaddress.h \
  /usr/include/glib-2.0/gio/gproxyaddressenumerator.h \
@@ -287,13 +289,8 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glib-2.0/gio/gsocketlistener.h \
  /usr/include/glib-2.0/gio/gsocketservice.h \
  /usr/include/glib-2.0/gio/gsrvtarget.h \
- /usr/include/glib-2.0/gio/gsimpleproxyresolver.h \
- /usr/include/glib-2.0/gio/gtask.h \
- /usr/include/glib-2.0/gio/gsubprocess.h \
- /usr/include/glib-2.0/gio/gsubprocesslauncher.h \
  /usr/include/glib-2.0/gio/gtcpconnection.h \
  /usr/include/glib-2.0/gio/gtcpwrapperconnection.h \
- /usr/include/glib-2.0/gio/gtestdbus.h \
  /usr/include/glib-2.0/gio/gthemedicon.h \
  /usr/include/glib-2.0/gio/gthreadedsocketservice.h \
  /usr/include/glib-2.0/gio/gtlsbackend.h \
@@ -322,19 +319,6 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/glib-2.0/gio/gmenumodel.h /usr/include/glib-2.0/gio/gmenu.h \
  /usr/include/glib-2.0/gio/gmenuexporter.h \
  /usr/include/glib-2.0/gio/gdbusmenumodel.h \
- /usr/include/glib-2.0/gio/gnotification.h \
- /usr/include/giomm-2.4/giomm/actiongroup.h \
- /usr/include/giomm-2.4/giomm/actionmap.h \
- /usr/include/giomm-2.4/giomm/simpleaction.h \
- /usr/include/giomm-2.4/giomm/appinfo.h \
- /usr/include/giomm-2.4/giomm/applaunchcontext.h \
- /usr/include/giomm-2.4/giomm/icon.h \
- /usr/include/giomm-2.4/giomm/application.h \
- /usr/include/giomm-2.4/giomm/applicationcommandline.h \
- /usr/include/giomm-2.4/giomm/file.h \
- /usr/include/giomm-2.4/giomm/asyncresult.h \
- /usr/include/giomm-2.4/giomm/fileattributeinfolist.h \
- /usr/include/giomm-2.4/giomm/fileattributeinfo.h \
  /usr/include/giomm-2.4/giomm/fileenumerator.h \
  /usr/include/giomm-2.4/giomm/cancellable.h \
  /usr/include/giomm-2.4/giomm/fileinfo.h \
@@ -350,6 +334,15 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/giomm-2.4/giomm/drive.h \
  /usr/include/giomm-2.4/giomm/mount.h \
  /usr/include/giomm-2.4/giomm/error.h \
+ /usr/include/giomm-2.4/giomm/bufferedinputstream.h \
+ /usr/include/giomm-2.4/giomm/filterinputstream.h \
+ /usr/include/giomm-2.4/giomm/bufferedoutputstream.h \
+ /usr/include/giomm-2.4/giomm/filteroutputstream.h \
+ /usr/include/giomm-2.4/giomm/contenttype.h \
+ /usr/include/giomm-2.4/giomm/datainputstream.h \
+ /usr/include/giomm-2.4/giomm/enums.h \
+ /usr/include/giomm-2.4/giomm/dataoutputstream.h \
+ /usr/include/giomm-2.4/giomm/dbusaddress.h \
  /usr/include/giomm-2.4/giomm/dbusconnection.h \
  /usr/include/giomm-2.4/giomm/initable.h \
  /usr/include/giomm-2.4/giomm/asyncinitable.h \
@@ -361,38 +354,18 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/giomm-2.4/giomm/dbusintrospection.h \
  /usr/include/giomm-2.4/giomm/dbussubtreevtable.h \
  /usr/include/giomm-2.4/giomm/dbusinterfacevtable.h \
- /usr/include/giomm-2.4/giomm/notification.h \
- /usr/include/giomm-2.4/giomm/bufferedinputstream.h \
- /usr/include/giomm-2.4/giomm/filterinputstream.h \
- /usr/include/giomm-2.4/giomm/bufferedoutputstream.h \
- /usr/include/giomm-2.4/giomm/filteroutputstream.h \
- /usr/include/giomm-2.4/giomm/charsetconverter.h \
- /usr/include/giomm-2.4/giomm/converter.h \
- /usr/include/giomm-2.4/giomm/contenttype.h \
- /usr/include/giomm-2.4/giomm/converterinputstream.h \
- /usr/include/giomm-2.4/giomm/pollableinputstream.h \
- /usr/include/giomm-2.4/giomm/converteroutputstream.h \
- /usr/include/giomm-2.4/giomm/pollableoutputstream.h \
- /usr/include/giomm-2.4/giomm/datainputstream.h \
- /usr/include/giomm-2.4/giomm/enums.h \
- /usr/include/giomm-2.4/giomm/dataoutputstream.h \
- /usr/include/giomm-2.4/giomm/dbusactiongroup.h \
- /usr/include/giomm-2.4/giomm/remoteactiongroup.h \
- /usr/include/giomm-2.4/giomm/dbusaddress.h \
  /usr/include/giomm-2.4/giomm/dbuserror.h \
  /usr/include/giomm-2.4/giomm/dbuserrorutils.h \
- /usr/include/giomm-2.4/giomm/dbusinterface.h \
  /usr/include/giomm-2.4/giomm/dbusmenumodel.h \
  /usr/include/giomm-2.4/giomm/menumodel.h \
- /usr/include/giomm-2.4/giomm/dbusobject.h \
  /usr/include/giomm-2.4/giomm/dbusownname.h \
  /usr/include/giomm-2.4/giomm/dbusproxy.h \
  /usr/include/giomm-2.4/giomm/dbusserver.h \
  /usr/include/giomm-2.4/giomm/dbusutils.h \
  /usr/include/giomm-2.4/giomm/dbuswatchname.h \
  /usr/include/giomm-2.4/giomm/desktopappinfo.h \
- /usr/include/giomm-2.4/giomm/emblem.h \
  /usr/include/giomm-2.4/giomm/emblemedicon.h \
+ /usr/include/giomm-2.4/giomm/emblem.h \
  /usr/include/giomm-2.4/giomm/fileicon.h \
  /usr/include/giomm-2.4/giomm/loadableicon.h \
  /usr/include/giomm-2.4/giomm/filenamecompleter.h \
@@ -403,12 +376,10 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/giomm-2.4/giomm/socketaddressenumerator.h \
  /usr/include/giomm-2.4/giomm/init.h \
  /usr/include/giomm-2.4/giomm/wrap_init.h \
- /usr/include/giomm-2.4/giomm/memoryinputstream.h \
- /usr/include/giomm-2.4/giomm/memoryoutputstream.h \
  /usr/include/giomm-2.4/giomm/menu.h \
  /usr/include/giomm-2.4/giomm/menuitem.h \
- /usr/include/giomm-2.4/giomm/menuattributeiter.h \
- /usr/include/giomm-2.4/giomm/menulinkiter.h \
+ /usr/include/giomm-2.4/giomm/memoryinputstream.h \
+ /usr/include/giomm-2.4/giomm/memoryoutputstream.h \
  /usr/include/giomm-2.4/giomm/networkaddress.h \
  /usr/include/giomm-2.4/giomm/networkservice.h \
  /usr/include/giomm-2.4/giomm/proxy.h \
@@ -416,25 +387,15 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/giomm-2.4/giomm/proxyresolver.h \
  /usr/include/giomm-2.4/giomm/resolver.h \
  /usr/include/giomm-2.4/giomm/srvtarget.h \
- /usr/include/giomm-2.4/giomm/resource.h \
  /usr/include/giomm-2.4/giomm/settings.h \
+ /usr/include/giomm-2.4/giomm/simpleaction.h \
  /usr/include/giomm-2.4/giomm/simpleactiongroup.h \
  /usr/include/giomm-2.4/giomm/socket.h \
  /usr/include/giomm-2.4/giomm/socketclient.h \
  /usr/include/giomm-2.4/giomm/socketconnection.h \
  /usr/include/giomm-2.4/giomm/socketcontrolmessage.h \
- /usr/include/giomm-2.4/giomm/socketlistener.h \
- /usr/include/giomm-2.4/giomm/socketservice.h \
  /usr/include/giomm-2.4/giomm/tcpconnection.h \
  /usr/include/giomm-2.4/giomm/themedicon.h \
- /usr/include/giomm-2.4/giomm/threadedsocketservice.h \
- /usr/include/giomm-2.4/giomm/tlscertificate.h \
- /usr/include/giomm-2.4/giomm/tlsclientconnection.h \
- /usr/include/giomm-2.4/giomm/tlsconnection.h \
- /usr/include/giomm-2.4/giomm/tlsdatabase.h \
- /usr/include/giomm-2.4/giomm/tlsinteraction.h \
- /usr/include/giomm-2.4/giomm/tlspassword.h \
- /usr/include/giomm-2.4/giomm/tlsserverconnection.h \
  /usr/include/giomm-2.4/giomm/unixconnection.h \
  /usr/include/giomm-2.4/giomm/unixcredentialsmessage.h \
  /usr/include/giomm-2.4/giomm/unixfdmessage.h \
@@ -443,8 +404,6 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/giomm-2.4/giomm/unixsocketaddress.h \
  /usr/include/giomm-2.4/giomm/volume.h \
  /usr/include/giomm-2.4/giomm/volumemonitor.h \
- /usr/include/giomm-2.4/giomm/zlibcompressor.h \
- /usr/include/giomm-2.4/giomm/zlibdecompressor.h \
  /usr/include/gdkmm-2.4/gdkmm.h /usr/include/gdkmm-2.4/gdkmm/screen.h \
  /usr/include/gdkmm-2.4/gdkmm/region.h /usr/include/gtk-2.0/gdk/gdk.h \
  /usr/include/gtk-2.0/gdk/gdkapplaunchcontext.h \
@@ -475,7 +434,7 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/pango-1.0/pango/pango-tabs.h \
  /usr/include/pango-1.0/pango/pango-renderer.h \
  /usr/include/pango-1.0/pango/pango-utils.h \
- /usr/lib/x86_64-linux-gnu/gtk-2.0/include/gdkconfig.h \
+ /usr/lib/i386-linux-gnu/gtk-2.0/include/gdkconfig.h \
  /usr/include/gtk-2.0/gdk/gdkdisplay.h \
  /usr/include/gtk-2.0/gdk/gdkevents.h /usr/include/gtk-2.0/gdk/gdkcolor.h \
  /usr/include/gtk-2.0/gdk/gdkdnd.h /usr/include/gtk-2.0/gdk/gdkinput.h \
@@ -506,20 +465,21 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/gtk-2.0/gdk/gdkwindow.h \
  /usr/include/gtk-2.0/gdk/gdkvisual.h \
  /usr/include/gdkmm-2.4/gdkmm/types.h \
- /usr/lib/x86_64-linux-gnu/gdkmm-2.4/include/gdkmmconfig.h \
- /usr/lib/x86_64-linux-gnu/pangomm-1.4/include/pangommconfig.h \
+ /usr/lib/i386-linux-gnu/gdkmm-2.4/include/gdkmmconfig.h \
+ /usr/lib/i386-linux-gnu/pangomm-1.4/include/pangommconfig.h \
  /usr/include/gdkmm-2.4/gdkmm/rectangle.h \
  /usr/include/cairomm-1.0/cairomm/fontoptions.h \
  /usr/include/cairomm-1.0/cairomm/enums.h /usr/include/cairo/cairo-ft.h \
- /usr/include/cairo/cairo.h /usr/include/freetype2/ft2build.h \
- /usr/include/freetype2/config/ftheader.h \
- /usr/include/freetype2/freetype.h \
- /usr/include/freetype2/config/ftconfig.h \
- /usr/include/freetype2/config/ftoption.h \
- /usr/include/freetype2/config/ftstdlib.h \
- /usr/include/freetype2/fttypes.h /usr/include/freetype2/ftsystem.h \
- /usr/include/freetype2/ftimage.h /usr/include/freetype2/fterrors.h \
- /usr/include/freetype2/ftmoderr.h /usr/include/freetype2/fterrdef.h \
+ /usr/include/cairo/cairo.h /usr/include/freetype2/freetype/freetype.h \
+ /usr/include/freetype2/freetype/config/ftconfig.h \
+ /usr/include/freetype2/freetype/config/ftoption.h \
+ /usr/include/freetype2/freetype/config/ftstdlib.h \
+ /usr/include/freetype2/freetype/fterrors.h \
+ /usr/include/freetype2/freetype/ftmoderr.h \
+ /usr/include/freetype2/freetype/fterrdef.h \
+ /usr/include/freetype2/freetype/fttypes.h \
+ /usr/include/freetype2/freetype/ftsystem.h \
+ /usr/include/freetype2/freetype/ftimage.h \
  /usr/include/gdkmm-2.4/gdkmm/visual.h /usr/include/gdkmm-2.4/gdkmm/gc.h \
  /usr/include/gdkmm-2.4/gdkmm/drawable.h \
  /usr/include/pangomm-1.4/pangomm/font.h \
@@ -619,9 +579,7 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/atk-1.0/atk/atkstateset.h \
  /usr/include/atk-1.0/atk/atkstreamablecontent.h \
  /usr/include/atk-1.0/atk/atktable.h /usr/include/atk-1.0/atk/atkmisc.h \
- /usr/include/atk-1.0/atk/atkvalue.h \
- /usr/include/atk-1.0/atk/atkversion.h \
- /usr/include/atk-1.0/atk/atkwindow.h \
+ /usr/include/atk-1.0/atk/atkvalue.h /usr/include/atk-1.0/atk/atkwindow.h \
  /usr/include/gtk-2.0/gtk/gtkaccellabel.h \
  /usr/include/gtk-2.0/gtk/gtklabel.h /usr/include/gtk-2.0/gtk/gtkmisc.h \
  /usr/include/gtk-2.0/gtk/gtkmenu.h \
@@ -664,6 +622,8 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/gtk-2.0/gtk/gtkcheckmenuitem.h \
  /usr/include/gtk-2.0/gtk/gtkmenuitem.h \
  /usr/include/gtk-2.0/gtk/gtkitem.h \
+ /usr/include/gtk-2.0/gtk/ubuntumenuproxy.h \
+ /usr/include/gtk-2.0/gtk/ubuntumenuproxymodule.h \
  /usr/include/gtk-2.0/gtk/gtkclipboard.h \
  /usr/include/gtk-2.0/gtk/gtkselection.h \
  /usr/include/gtk-2.0/gtk/gtktextiter.h \
@@ -803,7 +763,7 @@ view.o: view.cpp observer.h view.h /usr/include/gtkmm-2.4/gtkmm.h \
  /usr/include/gtk-2.0/gtk/gtktipsquery.h \
  /usr/include/gtkmm-2.4/gtkmm/container.h \
  /usr/include/gtkmm-2.4/gtkmm/widget.h \
- /usr/lib/x86_64-linux-gnu/gtkmm-2.4/include/gtkmmconfig.h \
+ /usr/lib/i386-linux-gnu/gtkmm-2.4/include/gtkmmconfig.h \
  /usr/include/atkmm-1.6/atkmm/object.h \
  /usr/include/atkmm-1.6/atkmm/component.h \
  /usr/include/atkmm-1.6/atkmm/relation.h \

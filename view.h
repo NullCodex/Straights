@@ -37,32 +37,6 @@ private:
 	// Card Images
 	DeckGUI deck;
 	
-	/*
-	// Member widgets:
-	Gtk::HBox panels;      // Main window divided into two horizontal panels
-	Gtk::VBox butBox;      // Vertical boxes for stacking buttons vertically
-	Gtk::Button next_button;
-	Gtk::Button reset_button;
-	Gtk::Button startButton;
-	Gtk::Button endButton;
-	Gtk::Image card;
-	Gtk::Table playerHand;
-	*/
-
-	/*
-	Gtk::HBox mainPanel;
-	Gtk::HBox secondPanel;
-	Gtk::HBox thirdPanel;
-	Gtk::VBox optionSelect;
-	Gtk::VBox butBox;
-	Gtk::Button next_button;
-	Gtk::Button reset_button;
-	Gtk::Button startButton;
-	Gtk::Button endButton;
-	Gtk::Image card;
-	Gtk::Table playerHand;
-	Gtk::Image cards[13];
-	*/
 
 	Gtk::VBox rootWindow;
 
@@ -71,6 +45,7 @@ private:
 	Gtk::Button startButton;
 	Gtk::Entry seedField;
 	Gtk::Button endButton;
+	Gtk::Button historyButton;
 
 	// table components
 	Gtk::Frame tableCardFrames[4][13];
@@ -98,13 +73,12 @@ private:
 
 
 	// Signal handlers:
-	void nextButtonClicked();
-	void resetButtonClicked();
-
 
 	void newGame();
 	void endGame();
+	void displayHistory();
 
+	// View functions
 	void playerButtonClicked(int);
 	void handButtonClicked(int);
 	void enableRageOption();

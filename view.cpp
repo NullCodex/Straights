@@ -22,7 +22,7 @@
 
 // Creates buttons with labels. Sets butBox elements to have the same size, 
 // with 10 pixels between widgets
-View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("Start new game with seed:"), endButton("End current game"){
+View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("Start new game with seed:"), endButton("End current game"), historyButton("Display history"){
 
 	const Glib::RefPtr<Gdk::Pixbuf> nullCardPixbuf = deck.null();
 
@@ -37,11 +37,13 @@ View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("S
 	startEndRow.add(startButton);
 	startEndRow.add(seedField);
 	startEndRow.add(endButton);
+	startEndRow.add(historyButton);
 	rootWindow.add(startEndRow);
 
-	// Bind start and end button signal
+	// Bind start end and history button
 	startButton.signal_clicked().connect(sigc::mem_fun(*this, &View::newGame));
 	endButton.signal_clicked().connect(sigc::mem_fun(*this, &View::endGame));
+	historyButton.signal_clicked().connect(sigc::mem_fun(*this, &View::displayHistory));
 
 	// Setup the table of cards
 	tableFrame.set_label("Cards on the table");
@@ -109,6 +111,7 @@ View::View(Controller *c, Model *m) : model_(m), controller_(c),  startButton("S
 View::~View() {}
 
 
+// View update function
 void View::update() {
 	if (model_->hasGameStarted()){
 		if (model_->isRoundStatusStart()){
@@ -116,7 +119,7 @@ void View::update() {
 		}
 		else if (model_->isRoundStatusWait()){
 			enableRageOption();
-			updateDiscards();
+			updateDiscards(); // Update discards
 			displayHand(); //show hand
 		}
 		else if (model_->isRoundStatusEnd()){
@@ -130,11 +133,13 @@ void View::update() {
 	//createDialog("Winner");
 }
 
+// endRound function creates the dialog 
 void View::endRound() {
 	createDialog(model_->endRound());
 	endRoundDialogClicked();
 }
 
+// Calls the end game function
 void View::endRoundDialogClicked(){
 	if (model_->winnerExists()){
 		createDialog(model_->showWinners());
@@ -145,9 +150,13 @@ void View::endRoundDialogClicked(){
 	}
 	
 }
+
+// Ends the current game
 void View::endGameDialogClicked(){
 	endGame();
 }
+
+// Update the current player's hand
 void View::displayHand(){
 	std::vector<int> hand = model_->currentHand();
 	for (unsigned int i = 0; i < 13; i++) {
@@ -177,6 +186,7 @@ void View::displayHand(){
 	}
 }
 
+// Highlights the current player and disable the other players
 void View::enableRageOption(){
 	for (unsigned int i = 0; i < 4; i++){
 		if (i!=model_->currentPlayerNumber()){
@@ -190,6 +200,8 @@ void View::enableRageOption(){
 	}
 }
 
+
+// Starts the a new round
 void View::startRound(){
 	std::vector <int> scores = model_->scores();
 	std::vector <int> discards = model_->discards();
@@ -207,14 +219,17 @@ void View::startRound(){
 	startRoundDialogClicked();
 }
 
+// Action listener for the start round dialog
 void View::startRoundDialogClicked() {
 	controller_->playRound();
 }
 
+// Calls the next turn function
 void View::nextTurn(){
 	controller_->playRound();	
 }
 
+// Function to create a new dialog
 void View::createDialog(std::string message){
 	GameDialog dialog(*this, message);
 }
@@ -230,6 +245,7 @@ void View::updateTable(){
 
 }
 
+// Updates the scores of the game
 void View::updateScores()
 {
 	std::vector <int> scores = model_->scores();
@@ -242,6 +258,7 @@ void View::updateScores()
 	}
 }
 
+// Update the discard display
 void View::updateDiscards(){
 	std::vector <int> discards = model_->discards();
 	std::stringstream message;
@@ -252,6 +269,7 @@ void View::updateDiscards(){
 	}
 }
 
+// Reset the score labels
 void View::resetScore()
 {
 	for(unsigned int i = 0; i < 4; i++)
@@ -260,6 +278,7 @@ void View::resetScore()
 	}
 }
 
+// Changes the player label
 void View::changePlayerLabel(int playerNumber) // use to change the label
 {
 	string label;
@@ -272,6 +291,7 @@ void View::changePlayerLabel(int playerNumber) // use to change the label
 	playerButtons[playerNumber].set_label(label);
 }
 
+// Clear the table of all pictures
 void View::clearTable() // Tested will work 
 {
 	for(unsigned int x = 0; x < 4; x++)
@@ -283,6 +303,7 @@ void View::clearTable() // Tested will work
 	}
 }
 
+// Clear the hand and sets it to null pictures
 void View::clearHand() // tested will work
 {
 	for(unsigned int i = 0; i < 13; i++)
@@ -292,19 +313,13 @@ void View::clearHand() // tested will work
 	}
 }
 
-void View::nextButtonClicked() {
-	controller_->nextButtonClicked();
-} // View::nextButtonClicked
-
-void View::resetButtonClicked() {
-	controller_->resetButtonClicked();
-} // View::resetButtonClicked
-
+// Calls the controller for a new game
 void View::newGame()
 {
 	controller_->newGame(seedField.get_text());
 }
 
+// Sets the view for end game
 void View::endGame()
 {
 	controller_->endGame();
@@ -324,6 +339,13 @@ void View::endGame()
 	}
 }
 
+// Display the game history 
+void View::displayHistory()
+{
+	createDialog(model_->gameHistory());
+}
+
+// Action binded to a player button
 void View::playerButtonClicked(int playerNumber)
 {
 	controller_->playerButtonClicked(playerNumber);
@@ -332,6 +354,7 @@ void View::playerButtonClicked(int playerNumber)
 	}
 }
 
+// Action binded to hand buttons
 void View::handButtonClicked(int cardNumber)
 {
 	controller_->handButtonClicked(cardNumber);

@@ -19,10 +19,9 @@
 class Model;
 
 class Controller {
+// public controller functions
 public:
    Controller( Model* );
-   void nextButtonClicked();
-   void resetButtonClicked();
    void newGame(std::string);
    void endGame();
    void newRound();

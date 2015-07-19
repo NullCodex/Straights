@@ -35,9 +35,13 @@ void Game::newRound(){
 	}
 	determineFirstPlayer();
 	currentPlayer_ = firstPlayer_;
-	std::cout << "A new round begins. It's player " << (firstPlayer_+1) << "'s turn to play." << std::endl;
+	std::stringstream message;
+	message << "A new round begins. It's player " << (firstPlayer_+1) << "'s turn to play." << "\n";
+	std::cout << message.str();
+	gameMessage_ += message.str();
 }
 
+// Return the current player
 int Game::currentPlayerNumber() const{
 	return currentPlayer_;
 }
@@ -52,6 +56,7 @@ void Game::determineFirstPlayer(){
 	}
 }
 
+// Game play round function
 void Game::playRound(){
 	updatePossiblePlays();
 	if (playerTypes_[currentPlayer_] == 'h'){
@@ -64,34 +69,43 @@ void Game::playRound(){
 		players_[currentPlayer_]->legalPlays(possiblePlays_);
 		Card* card = computer->getLastCardPlayed();
 		if (card != NULL){
-			std::cout << "here\n";
+			//std::cout << "here\n";
 			table_.placeCard(card);
 		}
 		nextPlayer();
 	}
 }
 
+// Check if the round is over
 bool Game::isRoundOver() const{
 	return players_[currentPlayer_]->isHandEmpty();
 }
+
+// Play the human action
 void Game::humanAction (Command c){
 	status_ = ACTIVE;
+	std::stringstream message;
 	if (c.type == PLAY){
 		Card* card = getCardReference(c.card);
 		Human* human = dynamic_cast<Human*>(players_[currentPlayer_]);
 		human->playCard(card, possiblePlays_); // PLays the card
-		std::cout << "Player " << (currentPlayer_ + 1) << " plays " << *card << "." << std::endl;
+		message << "Player " << (currentPlayer_ + 1) << " plays " << *card << "." << "\n";
+		std::cout << message.str();
+		gameMessage_ += message.str();
 		table_.placeCard(card); // Place the card onto the type	
 	}	
 	else{
 		// Discard the desired card
 		Card* card = getCardReference(c.card);
 		players_[currentPlayer_]->discardCard(card);
-		std::cout << "Player " << (currentPlayer_ + 1) << " discards " << *card << "." << std::endl;
+		message << "Player " << (currentPlayer_ + 1) << " discards " << *card << "." << "\n";
+		gameMessage_ += message.str();
+		std::cout << message.str();
 	}
 	nextPlayer();
 }
 
+// Move to the next player
 void Game::nextPlayer(){
 	currentPlayer_ = (currentPlayer_ + 1) % 4;
 	if (isRoundOver()){
@@ -99,6 +113,7 @@ void Game::nextPlayer(){
 	}
 }
 
+// Get table card values
 std::vector<int> Game::getTableCardValues() const{
 	std::vector<Card*> cards = table_.cardsOnTable();
 	std::vector<int> cardValues;
@@ -108,18 +123,22 @@ std::vector<int> Game::getTableCardValues() const{
 	return cardValues;
 }
 
+// Check if the card number is legal
 bool Game::isLegalPlay(int cardNumber) const{
 	return players_[currentPlayer_]->isLegalPlay(cardNumber, possiblePlays_);
 }
 
+// Check if the player can play any card
 bool Game::canPlayCard() const{
 	return players_[currentPlayer_]->canPlayCard(possiblePlays_);
 }
 
+// Returns a card pointer
 Card* Game::getCard(int cardNumber) const{
 	return players_[currentPlayer_]->getCard(cardNumber);
 }
 
+// Returns the current player's hand
 std::vector<int> Game::currentHand() const{
 	return players_[currentPlayer_]->currentHand();
 }
@@ -166,6 +185,7 @@ std::string Game::endRound() {
 			" = " << (players_[i]->getScore() + players_[i]->valueOfDiscarded()) << "\n";
 		players_[i]->updateScore();
 	}
+	resetGameHistory();
 	return message.str();
 }
 
@@ -216,10 +236,12 @@ void Game::updatePossiblePlays(){
 	}
 }
 
+// Return the round status
 RoundStatus Game::status() const{
 	return status_;
 }
 
+// Get the game scores
 std::vector<int> Game::scores() const{
 	std::vector<int> playerScores;
 	for (int i = 0; i < 4; i++){
@@ -228,6 +250,7 @@ std::vector<int> Game::scores() const{
 	return playerScores;
 }
 
+// Return the discards
 std::vector<int> Game::discards() const{
 	std::vector<int> numDiscards;
 	for (int i =0; i < players_.size(); i++){
@@ -236,11 +259,27 @@ std::vector<int> Game::discards() const{
 	return numDiscards;
 }
 
+// Ragequit function
 void Game::ragequit(){
+	std::stringstream message;
 	status_ = ACTIVE;
 	Human* temp = dynamic_cast<Human*>(players_[currentPlayer_]);
 	players_[currentPlayer_] = new Computer(players_[currentPlayer_]);
 	delete temp;
-	std::cout << "Player " << (currentPlayer_ + 1) << " ragequits. A computer will now take over." << std::endl;
+	message << "Player " << (currentPlayer_ + 1) << " ragequits. A computer will now take over." << "\n";
+	gameMessage_ += message.str();
+	std::cout << message.str();
 	playerTypes_[currentPlayer_] = 'c';
+}
+
+// Reset the game history
+void Game::resetGameHistory()
+{
+	gameMessage_ = "";
+}
+
+// Grabs the game history
+std::string Game::getGameHistory() const
+{
+	return gameMessage_;
 }
