@@ -1,0 +1,4 @@
+Added visual que for both current player and legal plays
+The current player highlighted
+Non-legal plays are greyed out
+Added history button to allow the user to see what moves has been made
